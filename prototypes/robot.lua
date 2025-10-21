@@ -39,7 +39,8 @@ data:extend{
     },
     util.merge{data.raw["combat-robot"]["defender"], {
         name = "deployed-defender-robot",
-        speed = 0.01,
+        speed = 0.008,
+        max_speed = 0.008,
         hidden_in_factoriopedia = true,
         localised_name = {"entity-name.defender"},
         created_effect = robot_deploy_effect,
@@ -54,7 +55,8 @@ data:extend{
     }},
     util.merge{data.raw["combat-robot"]["destroyer"], {
         name = "deployed-destroyer-robot",
-        speed = 0.01,
+        speed = 0.008,
+        max_speed = 0.008,
         hidden_in_factoriopedia = true,
         localised_name = {"entity-name.destroyer"},
         created_effect = robot_deploy_effect,

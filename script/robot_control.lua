@@ -28,11 +28,13 @@ function robot_control.register_deployed_robot(robot)
         -- indexing robot turret id
         storage.robot_index[robot.unit_number] = turret.unit_number
         if robot.name == "mortar-turret-robot-locator" then
+            -- apply non-destructible flags
+            robot.destructible = false
+            robot.minable = false
             -- relocate current deployed robots
             for _, deployed_robot in pairs(storage.turrets[turret.unit_number].deployed_robots) do
                 if deployed_robot.valid then
                     -- mark for delete elsewise?
-                    game.print(deployed_robot)
                     deployed_robot.combat_robot_owner = robot
                 end
             end
@@ -42,8 +44,6 @@ function robot_control.register_deployed_robot(robot)
             end
             storage.turrets[turret.unit_number].robot_deploy_locator = robot
         else
-            -- apply random movement, may need a better algorithm
-            robot.set_movement({math.random(-1, 1), math.random(-1, 1)}, 0.03)
             -- redirect to current locator
             storage.turrets[turret.unit_number].deployed_robots[robot.unit_number] = robot
             if storage.turrets[turret.unit_number].robot_deploy_locator and storage.turrets[turret.unit_number].robot_deploy_locator.valid then

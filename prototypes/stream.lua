@@ -1,6 +1,9 @@
+local bomb_stream_template = table.deepcopy(data.raw["stream"]["mortar-bomb-projectile-stream"])
+bomb_stream_template.action = {}
+
 data:extend{
     -- Energy bomb stream
-    util.merge{data.raw["stream"]["mortar-bomb-projectile-stream"], {
+    util.merge{bomb_stream_template, {
         name = "mortar-energy-bomb-projectile-stream",
         action = {
             {
@@ -44,7 +47,55 @@ data:extend{
         },
     }},
     -- Defender robot bomb stream
-    util.merge{data.raw["stream"]["mortar-bomb-projectile-stream"], {
+    util.merge{bomb_stream_template, {
+        name = "mortar-heavy-bomb-projectile-stream",
+        action = {
+            {
+                type = "direct",
+                action_delivery = {
+                    type = "instant",
+                    target_effects = {
+                        type = "create-entity",
+                        entity_name = "explosion"
+                    }
+                }
+            },
+            {
+                type = "area",
+                radius = 1.5,
+                force = "enemy",
+                action_delivery = {
+                    {
+                        type = "instant",
+                        target_effects = {
+                            {
+                                type = "damage",
+                                damage = { type = "physical", amount = 300 },
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                type = "area",
+                radius = 4,
+                force = "enemy",
+                action_delivery = {
+                    {
+                        type = "instant",
+                        target_effects = {
+                            {
+                                type = "damage",
+                                damage = { type = "explosion", amount = 50 },
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }},
+    -- Defender robot bomb stream
+    util.merge{bomb_stream_template, {
         name = "mortar-defender-robot-bomb-projectile-stream",
         action = {
             type = "direct",
@@ -65,7 +116,7 @@ data:extend{
         }
     }},
     -- Distractor robot bomb stream
-    util.merge{data.raw["stream"]["mortar-bomb-projectile-stream"], {
+    util.merge{bomb_stream_template, {
         name = "mortar-distractor-robot-bomb-projectile-stream",
         action = {
             type = "direct",
@@ -75,7 +126,8 @@ data:extend{
                     {
                         type = "create-entity",
                         show_in_tooltip = true,
-                        entity_name = "deployed-distractor-robot"
+                        entity_name = "deployed-distractor-robot",
+                        offsets = {{1, -1},{-1, -1},{0, 1}}
                     },
                     {
                         type = "create-entity",
@@ -86,7 +138,7 @@ data:extend{
         }
     }},
     -- Destroyer robot bomb stream
-    util.merge{data.raw["stream"]["mortar-bomb-projectile-stream"], {
+    util.merge{bomb_stream_template, {
         name = "mortar-destroyer-robot-bomb-projectile-stream",
         action = {
             type = "direct",
@@ -96,7 +148,8 @@ data:extend{
                     {
                         type = "create-entity",
                         show_in_tooltip = true,
-                        entity_name = "deployed-destroyer-robot"
+                        entity_name = "deployed-destroyer-robot",
+                        offsets = {{-2, -2},{-2, 2},{2, -2},{2, 2},{0, 0}}
                     },
                     {
                         type = "create-entity",
