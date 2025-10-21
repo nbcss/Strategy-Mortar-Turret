@@ -70,7 +70,7 @@ data:extend{
                         target_effects = {
                             {
                                 type = "damage",
-                                damage = { type = "physical", amount = 300 },
+                                damage = { type = "physical", amount = 250 },
                             }
                         }
                     }

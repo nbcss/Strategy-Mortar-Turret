@@ -1,11 +1,20 @@
-local util = require("util")
+local constants = require("constants")
 
-data:extend{{
-    type = "item-subgroup",
-    name = "mortar-bomb-ammo",
-    group = "combat",
-    order = "b-a"
-}}
+data:extend{
+    {
+        type = "ammo-category",
+        name = constants.mortar_strategy_ammo_category,
+        icon = "__aai-vehicles-ironclad__/graphics/icons/mortar-bomb-ammo-category.png",
+        subgroup = "ammo-category",
+        bonus_gui_order = "z",
+    },
+    {
+        type = "item-subgroup",
+        name = constants.mortar_ammo_subgroup,
+        group = "combat",
+        order = "b-a"
+    }
+}
 
 local energy_explosion = util.table.deepcopy(data.raw["explosion"]["explosion"])
 energy_explosion.name = "mortar-energy-explosion"
@@ -29,3 +38,4 @@ data:extend{energy_explosion}
 require("prototypes.ammo")
 require("prototypes.stream")
 require("prototypes.robot")
+require("prototypes.recipe")
