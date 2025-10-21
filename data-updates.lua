@@ -8,7 +8,7 @@ mortar_turret_entity.attack_parameters.cooldown = 600
 mortar_turret_entity.circuit_connector = circuit_connector_definitions.create_vector
 (
   universal_connector_template,
-  {  -- Why it needs 4 elements?
+  {
     { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
     { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
     { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
