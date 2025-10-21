@@ -5,6 +5,10 @@ script.on_init(
     end
 )
 
+script.on_nth_tick(30 * 60, function(_)
+    robot_control.update()
+end)
+
 script.on_event(defines.events.on_script_trigger_effect, function(event)
     if event.effect_id == 'mortar-turret-place' then
         robot_control.register_turret(event.cause_entity)

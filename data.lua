@@ -27,4 +27,5 @@ energy_explosion.explosion_effect = {
 data:extend{energy_explosion}
 
 require("prototypes.ammo")
+require("prototypes.stream")
 require("prototypes.robot")

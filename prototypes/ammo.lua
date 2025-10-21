@@ -1,49 +1,6 @@
 local source_offset = { 0, 0.25 }
-local mortar_energy_stream = util.table.deepcopy(data.raw["stream"]["mortar-bomb-projectile-stream"]);
-mortar_energy_stream.name = "mortar-energy-bomb-projectile-stream"
-mortar_energy_stream.action = {
-    {
-        type = "direct",
-        action_delivery = {
-            {
-                type = "instant",
-                target_effects = {
-                    {
-                        type = "create-entity",
-                        entity_name = "mortar-energy-explosion"
-                    }
-                }
-            }
-        }
-    },
-    {
-        type = "area",
-        radius = 8,
-        force = "enemy",
-        action_delivery = {
-            {
-                type = "instant",
-                target_effects = {
-                    {
-                        type = "damage",
-                        damage = { type = "electric", amount = 250 },
-                    },
-                    {
-                        type = "create-sticker",
-                        sticker = "electric-mini-stun"
-                    },
-                    {
-                        type = "push-back",
-                        distance = 2
-                    }
-                }
-            }
-        }
-    }
-}
-data:extend({mortar_energy_stream});
 
-data:extend({
+data:extend{
     {
         type = "ammo",
         name = "mortar-energy-bomb",
@@ -68,34 +25,7 @@ data:extend({
                 }
             }
         }
-    }
-})
-
-local mortar_defender_robot_stream = util.table.deepcopy(data.raw["stream"]["mortar-bomb-projectile-stream"]);
-mortar_defender_robot_stream.name = "mortar-defender-robot-bomb-projectile-stream"
-mortar_defender_robot_stream.action = {
-    {
-        type = "direct",
-        action_delivery = {
-            {
-                type = "instant",
-                target_effects = {
-                    {
-                        type = "create-entity",
-                        show_in_tooltip = true,
-                        entity_name = "deployed-defender-robot"
-                    },
-                    {
-                        type = "create-entity",
-                        entity_name = "mortar-turret-robot-locator"
-                    }
-                }
-            }
-        }
-    }
-}
-
-data:extend({mortar_defender_robot_stream, 
+    },
     {
         type = "ammo",
         name = "mortar-defender-robot-bomb",
@@ -140,7 +70,7 @@ data:extend({mortar_defender_robot_stream,
                 type = "direct",
                 action_delivery = {
                     type = "stream",
-                    stream = "mortar-defender-robot-bomb-projectile-stream",
+                    stream = "mortar-distractor-robot-bomb-projectile-stream",
                     source_offset = source_offset
                 }
             }
@@ -165,10 +95,10 @@ data:extend({mortar_defender_robot_stream,
                 type = "direct",
                 action_delivery = {
                     type = "stream",
-                    stream = "mortar-defender-robot-bomb-projectile-stream",
+                    stream = "mortar-destroyer-robot-bomb-projectile-stream",
                     source_offset = source_offset
                 }
             }
         }
     }
-})
+}

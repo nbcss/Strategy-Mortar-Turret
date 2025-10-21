@@ -5,6 +5,16 @@ function robot_control.on_init()
     storage.robot_index = {}
 end
 
+function robot_control.update()
+    for _, turret in pairs(storage.turrets) do
+        if next(turret.deployed_robots) == nil then
+            turret.robot_deploy_locator = nil
+        elseif turret.robot_deploy_locator and turret.robot_deploy_locator.valid then
+            turret.robot_deploy_locator.time_to_live = 60 * 60
+        end
+    end
+end
+
 function robot_control.register_turret(turret)
     storage.turrets[turret.unit_number] = {
         robot_deploy_locator = nil,
@@ -14,7 +24,7 @@ end
 
 function robot_control.register_deployed_robot(robot)
     local turret = robot.combat_robot_owner
-    if turret and turret.name == "mortar-turret" and storage.turrets[turret.unit_number] then
+    if turret and storage.turrets[turret.unit_number] then
         -- indexing robot turret id
         storage.robot_index[robot.unit_number] = turret.unit_number
         if robot.name == "mortar-turret-robot-locator" then
@@ -36,7 +46,7 @@ function robot_control.register_deployed_robot(robot)
             robot.set_movement({math.random(-1, 1), math.random(-1, 1)}, 0.03)
             -- redirect to current locator
             storage.turrets[turret.unit_number].deployed_robots[robot.unit_number] = robot
-            if storage.turrets[turret.unit_number].robot_deploy_locator then
+            if storage.turrets[turret.unit_number].robot_deploy_locator and storage.turrets[turret.unit_number].robot_deploy_locator.valid then
                 robot.combat_robot_owner = storage.turrets[turret.unit_number].robot_deploy_locator
             end
         end
@@ -52,7 +62,7 @@ end
 local function remove_deployed_robot(robot_unit_number)
     local turret = storage.turrets[storage.robot_index[robot_unit_number]]
     if turret then
-        if turret.robot_deploy_locator and turret.robot_deploy_locator.unit_number == robot_unit_number then
+        if turret.robot_deploy_locator and turret.robot_deploy_locator.valid and turret.robot_deploy_locator.unit_number == robot_unit_number then
             turret.robot_deploy_locator = nil
         else
             turret.deployed_robots[robot_unit_number] = nil

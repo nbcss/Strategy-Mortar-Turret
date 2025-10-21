@@ -15,24 +15,48 @@ local robot_deploy_effect = {
     }
 }
 
-local robot_locator = table.deepcopy(data.raw["combat-robot"]["distractor"])
-robot_locator.name = "mortar-turret-robot-locator"
-robot_locator.attack_parameters.warmup = 999999999
-robot_locator.follows_player = false
-robot_locator.hidden = true
-robot_locator.speed = 0
-robot_locator.max_speed = 0
-robot_locator.time_to_live = 60 * 60 * 3
-robot_locator.is_military_target = false
-robot_locator.collision_box = {{0, 0}, {0, 0}}
-robot_locator.created_effect = robot_deploy_effect
-
-local defender_robot = table.deepcopy(data.raw["combat-robot"]["defender"])
-defender_robot.name = "deployed-defender-robot"
-defender_robot.speed = 0.03
-defender_robot.max_speed = 0.05 -- reduce speed for more stable movement
-defender_robot.hidden_in_factoriopedia = true
-defender_robot.localised_name = {"entity-name.defender"}
-defender_robot.created_effect = robot_deploy_effect
-
-data:extend({robot_locator, defender_robot})
+data:extend{
+    {
+        type = "combat-robot",
+        name = "mortar-turret-robot-locator",
+        attack_parameters = {
+            type = "projectile",
+            cooldown = 10000000,
+            range = 0,
+            damage_modifier = 0,
+            ammo_type = {},
+            ammo_category = "bullet"
+        },
+        follows_player = false,
+        hidden = true,
+        speed = 0,
+        max_speed = 0,
+        time_to_live = 60 * 60,
+        max_health = 10000000,
+        alert_when_damaged = false,
+        is_military_target = false,
+        created_effect = robot_deploy_effect,
+    },
+    util.merge{data.raw["combat-robot"]["defender"], {
+        name = "deployed-defender-robot",
+        speed = 0.01,
+        hidden_in_factoriopedia = true,
+        localised_name = {"entity-name.defender"},
+        created_effect = robot_deploy_effect,
+    }},
+    util.merge{data.raw["combat-robot"]["distractor"], {
+        name = "deployed-distractor-robot",
+        speed = 0,
+        max_speed = 0,
+        hidden_in_factoriopedia = true,
+        localised_name = {"entity-name.distractor"},
+        created_effect = robot_deploy_effect,
+    }},
+    util.merge{data.raw["combat-robot"]["destroyer"], {
+        name = "deployed-destroyer-robot",
+        speed = 0.01,
+        hidden_in_factoriopedia = true,
+        localised_name = {"entity-name.destroyer"},
+        created_effect = robot_deploy_effect,
+    }}
+}
