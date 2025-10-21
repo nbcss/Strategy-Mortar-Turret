@@ -1,0 +1,11 @@
+{
+    "name": "strategy-mortar-turret",
+    "version": "0.0.1",
+    "title": "Strategy Mortar Turret",
+    "author": "nbcss",
+    "factorio_version": "2.0",
+	"dependencies": [ 
+        "ironclad-gunboat-and-mortar-turret-fork"
+	],
+    "description": "Update mortar turret to improve it's defense usage, also introduce new mortar ammo."
+}
