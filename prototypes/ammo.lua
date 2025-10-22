@@ -64,7 +64,6 @@ data:extend{
         stack_size = 200,
 		ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
-            category = constants.mortar_strategy_ammo_category,
             target_type = "position",
             clamp_position = true,
             range_modifier = 1,
@@ -72,9 +71,18 @@ data:extend{
             action = {
                 type = "direct",
                 action_delivery = {
-                    type = "stream",
-                    stream = "mortar-defender-robot-bomb-projectile-stream",
-                    source_offset = source_offset
+                    {
+                        type = "stream",
+                        stream = "mortar-defender-robot-bomb-projectile-stream",
+                        source_offset = source_offset
+                    },
+                    {
+                        type = "instant",
+                        source_effects = {
+                            type = "script",
+                            effect_id = "mortar-turret-robot-shoot"
+                        }
+                    }
                 }
             }
         }
@@ -90,7 +98,6 @@ data:extend{
         stack_size = 200,
 		ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
-            category = constants.mortar_strategy_ammo_category,
             target_type = "position",
             clamp_position = true,
             range_modifier = 1,
@@ -98,9 +105,18 @@ data:extend{
             action = {
                 type = "direct",
                 action_delivery = {
-                    type = "stream",
-                    stream = "mortar-distractor-robot-bomb-projectile-stream",
-                    source_offset = source_offset
+                    {
+                        type = "stream",
+                        stream = "mortar-distractor-robot-bomb-projectile-stream",
+                        source_offset = source_offset
+                    },
+                    {
+                        type = "instant",
+                        source_effects = {
+                            type = "script",
+                            effect_id = "mortar-turret-robot-shoot"
+                        }
+                    }
                 }
             }
         }
@@ -116,7 +132,6 @@ data:extend{
         stack_size = 200,
 		ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
-            category = constants.mortar_strategy_ammo_category,
             target_type = "position",
             clamp_position = true,
             range_modifier = 1,
@@ -124,9 +139,18 @@ data:extend{
             action = {
                 type = "direct",
                 action_delivery = {
-                    type = "stream",
-                    stream = "mortar-destroyer-robot-bomb-projectile-stream",
-                    source_offset = source_offset
+                    {
+                        type = "stream",
+                        stream = "mortar-destroyer-robot-bomb-projectile-stream",
+                        source_offset = source_offset
+                    },
+                    {
+                        type = "instant",
+                        source_effects = {
+                            type = "script",
+                            effect_id = "mortar-turret-robot-shoot"
+                        }
+                    }
                 }
             }
         }

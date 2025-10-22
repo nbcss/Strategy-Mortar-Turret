@@ -2,14 +2,10 @@ local robot_deploy_effect = {
     {
         type = "direct",
         action_delivery = {
-            {
-                type = "instant",
-                target_effects = {
-                    {
-                        type = "script",
-                        effect_id = "mortar-turret-robot-deploy"
-                    }
-                }
+            type = "instant",
+            target_effects = {
+                type = "script",
+                effect_id = "mortar-turret-robot-deploy"
             }
         }
     }
@@ -41,6 +37,7 @@ data:extend{
         name = "deployed-defender-robot",
         speed = 0.008,
         max_speed = 0.008,
+        time_to_live = 60 * 30,  --reduced TTL
         hidden = true,
         hidden_in_factoriopedia = true,
         localised_name = {"entity-name.defender"},
@@ -50,6 +47,7 @@ data:extend{
         name = "deployed-distractor-robot",
         speed = 0,
         max_speed = 0,
+        time_to_live = 60 * 45,  --reduced TTL
         hidden = true,
         hidden_in_factoriopedia = true,
         localised_name = {"entity-name.distractor"},
@@ -59,6 +57,7 @@ data:extend{
         name = "deployed-destroyer-robot",
         speed = 0.008,
         max_speed = 0.008,
+        time_to_live = 60 * 60,  --reduced TTL
         hidden = true,
         hidden_in_factoriopedia = true,
         localised_name = {"entity-name.destroyer"},

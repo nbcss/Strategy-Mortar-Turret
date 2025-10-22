@@ -19,26 +19,15 @@ mortar_turret_entity.circuit_connector = circuit_connector_definitions.create_ve
     }
 )
 mortar_turret_entity.circuit_wire_max_distance = default_circuit_wire_max_distance
-mortar_turret_entity.created_effect = {
-    {
-        type = "direct",
-        action_delivery = {
-            {
-                type = "instant",
-                target_effects = {
-                    {
-                        type = "script",
-                        effect_id = "mortar-turret-place"
-                    }
-                }
-            }
-        }
-    }
-}
 
 local mortar_turret_item = data.raw["item"]["mortar-turret"]
 mortar_turret_item.stack_size = 10
 mortar_turret_item.subgroup = "turret"
+
+-- update ironclad turret parameters
+local ironclad_mortar_turret = data.raw["gun"]["ironclad-mortar"]
+ironclad_mortar_turret.attack_parameters.ammo_category = nil
+ironclad_mortar_turret.attack_parameters.ammo_categories = {"mortar-bomb", constants.mortar_strategy_ammo_category}
 
 -- rearrange item group
 local mortar_bomb_ammo_item = data.raw["ammo"]["mortar-bomb"]
@@ -51,8 +40,10 @@ mortar_cluster_bomb_ammo_item.order = "b"
 
 local mortar_poison_bomb_ammo_item = data.raw["ammo"]["mortar-poison-bomb"]
 mortar_poison_bomb_ammo_item.subgroup = constants.mortar_ammo_subgroup
+mortar_poison_bomb_ammo_item.ammo_category = constants.mortar_strategy_ammo_category
 mortar_poison_bomb_ammo_item.order = "c"
 
 local mortar_fire_bomb_ammo_item = data.raw["ammo"]["mortar-fire-bomb"]
 mortar_fire_bomb_ammo_item.subgroup = constants.mortar_ammo_subgroup
+mortar_poison_bomb_ammo_item.ammo_category = constants.mortar_strategy_ammo_category
 mortar_fire_bomb_ammo_item.order = "d"

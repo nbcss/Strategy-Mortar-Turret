@@ -16,10 +16,14 @@ function robot_control.update()
 end
 
 function robot_control.register_turret(turret)
-    storage.turrets[turret.unit_number] = {
-        robot_deploy_locator = nil,
-        deployed_robots = {}
-    }
+    if not storage.turrets[turret.unit_number] then
+        storage.turrets[turret.unit_number] = {
+            robot_deploy_locator = nil,
+            deployed_robots = {}
+        }
+        return true
+    end
+    return false
 end
 
 function robot_control.register_deployed_robot(robot)

@@ -10,9 +10,10 @@ script.on_nth_tick(30 * 60, function(_)
 end)
 
 script.on_event(defines.events.on_script_trigger_effect, function(event)
-    if event.effect_id == 'mortar-turret-place' then
-        robot_control.register_turret(event.cause_entity)
-        script.register_on_object_destroyed(event.cause_entity)
+    if event.effect_id == 'mortar-turret-robot-shoot' then
+        if robot_control.register_turret(event.cause_entity) then
+            script.register_on_object_destroyed(event.cause_entity)
+        end
     elseif event.effect_id == 'mortar-turret-robot-deploy' then
         robot_control.register_deployed_robot(event.cause_entity)
         script.register_on_object_destroyed(event.cause_entity)
