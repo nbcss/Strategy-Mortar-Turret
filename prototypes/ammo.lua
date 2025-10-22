@@ -1,10 +1,10 @@
-local source_offset = { 0, 0.25 }
 local constants = require("constants")
+local source_offset = { 0, 0.25 }
 
 data:extend{
     {
         type = "ammo",
-        name = "mortar-slowdown-ammo",
+        name = constants.slowdown_ammo,
         order = "d",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-slowdown-ammo.png",
         icon_mipmaps = 1,
@@ -21,7 +21,7 @@ data:extend{
                 type = "direct",
                 action_delivery = {
                     type = "stream",
-                    stream = "mortar-slowdown-projectile-stream",
+                    stream = constants.slowdown_stream,
                     source_offset = source_offset
                 }
             }
@@ -29,7 +29,7 @@ data:extend{
     },
     {
         type = "ammo",
-        name = "mortar-defender-robot-ammo",
+        name = constants.defender_ammo,
         order = "f",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-defender-ammo.png",
         icon_mipmaps = 1,
@@ -40,14 +40,14 @@ data:extend{
         ammo_type = {
             target_type = "position",
             clamp_position = true,
-            range_modifier = 1,
-            cooldown_modifier = 1,
+            range_modifier = 0.8,
+            cooldown_modifier = 2,
             action = {
                 type = "direct",
                 action_delivery = {
                     {
                         type = "stream",
-                        stream = "mortar-defender-robot-bomb-projectile-stream",
+                        stream = constants.defender_stream,
                         source_offset = source_offset
                     },
                     {
@@ -63,7 +63,7 @@ data:extend{
     },
     {
         type = "ammo",
-        name = "mortar-distractor-robot-ammo",
+        name = constants.distractor_ammo,
         order = "g",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-distractor-ammo.png",
         icon_mipmaps = 1,
@@ -74,14 +74,14 @@ data:extend{
         ammo_type = {
             target_type = "position",
             clamp_position = true,
-            range_modifier = 1,
-            cooldown_modifier = 1,
+            range_modifier = 0.8,
+            cooldown_modifier = 2,
             action = {
                 type = "direct",
                 action_delivery = {
                     {
                         type = "stream",
-                        stream = "mortar-distractor-robot-bomb-projectile-stream",
+                        stream = constants.distractor_stream,
                         source_offset = source_offset
                     },
                     {
@@ -97,7 +97,7 @@ data:extend{
     },
     {
         type = "ammo",
-        name = "mortar-destroyer-robot-ammo",
+        name = constants.destroyer_ammo,
         order = "h",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-destroyer-ammo.png",
         icon_mipmaps = 1,
@@ -108,14 +108,14 @@ data:extend{
         ammo_type = {
             target_type = "position",
             clamp_position = true,
-            range_modifier = 1,
-            cooldown_modifier = 1,
+            range_modifier = 0.8,
+            cooldown_modifier = 2,
             action = {
                 type = "direct",
                 action_delivery = {
                     {
                         type = "stream",
-                        stream = "mortar-destroyer-robot-bomb-projectile-stream",
+                        stream = constants.destroyer_stream,
                         source_offset = source_offset
                     },
                     {
@@ -131,7 +131,7 @@ data:extend{
     },
         {
         type = "ammo",
-        name = "mortar-energy-ammo",
+        name = constants.energy_ammo,
         order = "i",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-energy-ammo.png",
         icon_mipmaps = 1,
@@ -143,11 +143,12 @@ data:extend{
             target_type = "position",
             clamp_position = true,
             range_modifier = 1,
+            cooldown_modifier = 1,
             action = {
                 type = "direct",
                 action_delivery = {
                     type = "stream",
-                    stream = "mortar-energy-bomb-projectile-stream",
+                    stream = constants.energy_stream,
                     source_offset = source_offset
                 }
             }
@@ -155,7 +156,7 @@ data:extend{
     },
     {
         type = "ammo",
-        name = "mortar-heavy-ammo",
+        name = constants.heavy_ammo,
         order = "j",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-heavy-ammo.png",
         icon_mipmaps = 1,
@@ -172,7 +173,7 @@ data:extend{
                 type = "direct",
                 action_delivery = {
                     type = "stream",
-                    stream = "mortar-heavy-bomb-projectile-stream",
+                    stream = constants.heavy_stream,
                     source_offset = source_offset
                 }
             }
