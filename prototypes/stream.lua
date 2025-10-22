@@ -2,11 +2,13 @@ local constants = require("constants")
 
 local mortar_stream_template = table.deepcopy(data.raw["stream"]["mortar-bomb-projectile-stream"])
 mortar_stream_template.action = {}
+mortar_stream_template.particle = {}
 
 data:extend{
     -- Slowdown shell stream
     util.merge{mortar_stream_template, {
         name = constants.slowdown_stream,
+        particle = data.raw["projectile"]["slowdown-capsule"].animation,
         action = {
             {
                 type = "direct",
@@ -36,6 +38,7 @@ data:extend{
     -- Defender robot bomb stream
     util.merge{mortar_stream_template, {
         name = constants.defender_stream,
+        particle = data.raw["projectile"]["defender-capsule"].animation,
         action = {
             type = "direct",
             action_delivery = {
@@ -57,6 +60,7 @@ data:extend{
     -- Distractor robot bomb stream
     util.merge{mortar_stream_template, {
         name = constants.distractor_stream,
+        particle = data.raw["projectile"]["distractor-capsule"].animation,
         action = {
             type = "direct",
             action_delivery = {
@@ -79,6 +83,7 @@ data:extend{
     -- Destroyer robot bomb stream
     util.merge{mortar_stream_template, {
         name = constants.destroyer_stream,
+        particle = data.raw["projectile"]["destroyer-capsule"].animation,
         action = {
             type = "direct",
             action_delivery = {
@@ -98,9 +103,10 @@ data:extend{
             }
         }
     }},
-    -- Energy bomb stream
+    -- Energy bomb stream TODO: add particle
     util.merge{mortar_stream_template, {
         name = constants.energy_stream,
+        particle = data.raw["artillery-projectile"]["artillery-projectile"].picture,
         action = {
             {
                 type = "direct",
@@ -139,6 +145,7 @@ data:extend{
     -- Heavy bomb stream
     util.merge{mortar_stream_template, {
         name = constants.heavy_stream,
+        particle = data.raw["artillery-projectile"]["artillery-projectile"].picture,
         action = {
             {
                 type = "direct",

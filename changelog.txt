@@ -7,8 +7,4 @@ Version: 0.0.1
 4. Reorder the position in crafting manual to turret row
 5. Mortar turret supports circuit control
 6. Add new mortar ammo
-TODO
-improve poison cloud
-create another turret damage tech?
-fix stream particle
 ---------------------------------------------------------------------------------------------------
