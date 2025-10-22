@@ -1,10 +1,10 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.0.1
+Version: 1.0.0
 
-1. Reduce Mortar range to 50 for more defense usage
-2. Add path predict to projectile
-3. Fix missing locale key
-4. Reorder the position in crafting manual to turret row
-5. Mortar turret supports circuit control
-6. Add new mortar ammo
+1. Adjust many parameters of existing mortar turret (e.g. reduce range to 50)
+2. Add target movement predict to mortar turret
+3. Add circuit control support for the mortar turret
+4. Update texture and locale message
+5. Add new strategy mortar ammo: Slowdown, Defender, Distractor, Destroyer, Energy, Heavy
+6. Deployed robot from a turret will patrol the turret's latest shell landing location
 ---------------------------------------------------------------------------------------------------

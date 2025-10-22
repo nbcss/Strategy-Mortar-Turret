@@ -45,3 +45,4 @@ mortar_fire_bomb_ammo_item.icon = "__strategy-mortar-turret__/graphics/icons/mor
 mortar_fire_bomb_ammo_item.subgroup = constants.mortar_ammo_subgroup
 mortar_fire_bomb_ammo_item.ammo_category = constants.mortar_strategy_ammo_category
 mortar_fire_bomb_ammo_item.order = "e"
+data.raw["recipe"]["mortar-fire-bomb"].icon = "__strategy-mortar-turret__/graphics/icons/mortar-fire-ammo.png"
