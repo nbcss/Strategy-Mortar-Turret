@@ -46,7 +46,7 @@ data:extend{
             }
         },
     }},
-    -- Defender robot bomb stream
+    -- Heavy bomb stream
     util.merge{bomb_stream_template, {
         name = "mortar-heavy-bomb-projectile-stream",
         action = {
@@ -89,6 +89,35 @@ data:extend{
                                 damage = { type = "explosion", amount = 50 },
                             }
                         }
+                    }
+                }
+            }
+        }
+    }},
+    -- Slowdown shell stream
+    util.merge{bomb_stream_template, {
+        name = "mortar-slowdown-projectile-stream",
+        action = {
+            {
+                type = "direct",
+                action_delivery = {
+                    type = "instant",
+                    target_effects = {
+                        type = "create-entity",
+                        entity_name = "slowdown-capsule-explosion"
+                    }
+                }
+            },
+            {
+                type = "area",
+                radius = 9,
+                force = "enemy",
+                action_delivery = {
+                    type = "instant",
+                    target_effects = {
+                        type = "create-sticker",
+                        sticker = "slowdown-sticker",
+                        show_in_tooltip = true
                     }
                 }
             }

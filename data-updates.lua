@@ -44,6 +44,7 @@ mortar_poison_bomb_ammo_item.ammo_category = constants.mortar_strategy_ammo_cate
 mortar_poison_bomb_ammo_item.order = "c"
 
 local mortar_fire_bomb_ammo_item = data.raw["ammo"]["mortar-fire-bomb"]
+mortar_fire_bomb_ammo_item.icon = "__strategy-mortar-turret__/graphics/icons/mortar-fire-ammo.png"
 mortar_fire_bomb_ammo_item.subgroup = constants.mortar_ammo_subgroup
-mortar_poison_bomb_ammo_item.ammo_category = constants.mortar_strategy_ammo_category
-mortar_fire_bomb_ammo_item.order = "d"
+mortar_fire_bomb_ammo_item.ammo_category = constants.mortar_strategy_ammo_category
+mortar_fire_bomb_ammo_item.order = "e"
