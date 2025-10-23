@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 24. 10. 2025
+  Changes:
+    - Ironclad gunboat and mortar turret (fork) is an optional dependency now
+    - Slightly changed the ingredient amount of some recipes
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 23. 10. 2025
   Features:

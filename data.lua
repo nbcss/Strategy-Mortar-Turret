@@ -1,10 +1,12 @@
 local constants = require("constants")
 
 require("prototypes.ammo")
+require("prototypes.entity")
+require("prototypes.item")
 require("prototypes.stream")
 require("prototypes.robot")
 require("prototypes.recipe")
-require("postprocessing.turret_update")
+require("prototypes.technology")
 
 local beam_effect = util.table.deepcopy(data.raw["beam"]["electric-beam"])
 beam_effect.name = "electric-beam-no-damage"
@@ -26,6 +28,11 @@ data:extend{ beam_effect,
     }
 }
 
+-- update ironclad turret to use strategy ammo
+local ironclad_mortar_turret = data.raw["gun"]["ironclad-mortar"]
+ironclad_mortar_turret.attack_parameters.ammo_category = nil
+ironclad_mortar_turret.attack_parameters.ammo_categories = {"mortar-bomb", constants.mortar_strategy_ammo_category}
+
 -- rearrange item group
 local mortar_bomb_ammo_item = data.raw["ammo"]["mortar-bomb"]
 mortar_bomb_ammo_item.subgroup = constants.mortar_ammo_subgroup
@@ -34,11 +41,6 @@ mortar_bomb_ammo_item.order = "a"
 local mortar_cluster_bomb_ammo_item = data.raw["ammo"]["mortar-cluster-bomb"]
 mortar_cluster_bomb_ammo_item.subgroup = constants.mortar_ammo_subgroup
 mortar_cluster_bomb_ammo_item.order = "b"
-
-local mortar_poison_bomb_ammo_item = data.raw["ammo"]["mortar-poison-bomb"]
-mortar_poison_bomb_ammo_item.subgroup = constants.mortar_ammo_subgroup
-mortar_poison_bomb_ammo_item.ammo_category = constants.mortar_strategy_ammo_category
-mortar_poison_bomb_ammo_item.order = "c"
 
 local mortar_fire_bomb_ammo_item = data.raw["ammo"]["mortar-fire-bomb"]
 mortar_fire_bomb_ammo_item.icon = "__strategy-mortar-turret__/graphics/icons/mortar-fire-ammo.png"

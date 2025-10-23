@@ -3,6 +3,41 @@ local constants = require("constants")
 data.extend{
     {
         type = "recipe",
+        name = "mortar-turret",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret-icon.png",
+        icon_size = 64,
+        subgroup = "turret",
+        order = "b[turret]-a[gun-turret]",
+        enabled = false,
+        energy_required = 5,
+        ingredients = {
+            {type = "item", name = "engine-unit", amount = 5},
+            {type = "item", name = "steel-plate", amount = 5},
+            {type = "item", name = "iron-gear-wheel", amount = 10},
+        },
+        results = {
+            {type = "item", name = "mortar-turret", amount = 1},
+        }
+    },
+    {
+        type = "recipe",
+        name = constants.poison_ammo,
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-poison-ammo.png",
+        icon_size = 64,
+        subgroup = "ammo",
+        enabled = false,
+        energy_required = 8,
+        ingredients = {
+            {type = "item", name = "steel-plate", amount = 2},
+            {type = "item", name = "grenade", amount = 1},
+            {type = "item", name = "poison-capsule", amount = 1}
+        },
+        results = {
+            {type = "item", name = constants.poison_ammo, amount = 1},
+        }
+    },
+    {
+        type = "recipe",
         name = constants.slowdown_ammo,
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-slowdown-ammo.png",
         icon_size = 64,
@@ -16,6 +51,23 @@ data.extend{
         },
         results = {
             {type = "item", name = constants.slowdown_ammo, amount = 1},
+        }
+    },
+    {
+        type = "recipe",
+        name = constants.fire_ammo,
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-fire-ammo.png",
+        icon_size = 64,
+        subgroup = "ammo",
+        enabled = false,
+        energy_required = 8,
+        ingredients = {
+            {type = "item", name = "steel-plate", amount = 2},
+            {type = "item", name = "grenade", amount = 1},
+            {type = "item", name = "flamethrower-ammo", amount = 1}
+        },
+        results = {
+            {type = "item", name = constants.fire_ammo, amount = 1},
         }
     },
     {

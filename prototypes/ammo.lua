@@ -4,6 +4,30 @@ local source_offset = { 0, 0.25 }
 data:extend{
     {
         type = "ammo",
+        name = constants.poison_ammo,
+        order = "c",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-poison-ammo.png",
+        icon_mipmaps = 1,
+        icon_size = 64,
+        subgroup = constants.mortar_ammo_subgroup,
+        stack_size = 200,
+		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_type = {
+            target_type = "position",
+            clamp_position = true,
+            range_modifier = 1,
+            action = {
+                type = "direct",
+                action_delivery = {
+                    type = "stream",
+                    stream = constants.poison_stream,
+                    source_offset = source_offset
+                }
+            }
+        }
+    },
+    {
+        type = "ammo",
         name = constants.slowdown_ammo,
         order = "d",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-slowdown-ammo.png",
@@ -22,6 +46,30 @@ data:extend{
                 action_delivery = {
                     type = "stream",
                     stream = constants.slowdown_stream,
+                    source_offset = source_offset
+                }
+            }
+        }
+    },
+    {
+        type = "ammo",
+        name = constants.fire_ammo,
+        order = "e",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-fire-ammo.png",
+        icon_mipmaps = 1,
+        icon_size = 64,
+        subgroup = constants.mortar_ammo_subgroup,
+        stack_size = 200,
+		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_type = {
+            target_type = "position",
+            clamp_position = true,
+            range_modifier = 1,
+            action = {
+                type = "direct",
+                action_delivery = {
+                    type = "stream",
+                    stream = constants.fire_stream,
                     source_offset = source_offset
                 }
             }
