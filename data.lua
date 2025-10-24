@@ -28,6 +28,24 @@ data:extend{ beam_effect,
     }
 }
 
+-- change to 8-direction turret
+if settings.startup[constants.name_prefix.."enable-8-direction-mortar-turret"].value == true then
+    local turret = data.raw["ammo-turret"]["mortar-turret"]
+    table.insert(turret.flags, "building-direction-8-way")
+    turret.circuit_connector = circuit_connector_definitions.create_vector(
+        universal_connector_template, {
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+        }
+    )
+end
+
 -- update ironclad turret to use strategy ammo
 local ironclad_mortar_turret = data.raw["gun"]["ironclad-mortar"]
 ironclad_mortar_turret.attack_parameters.ammo_category = nil
