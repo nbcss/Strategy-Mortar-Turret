@@ -6,7 +6,7 @@ data:extend { {
     name = "mortar-turret",
     icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret-icon.png",
     icon_size = 64,
-    flags = { "placeable-player", "player-creation" },
+    flags = { "placeable-player", "player-creation", "building-direction-8-way" },
     minable = { mining_time = 0.5, result = "mortar-turret" },
     max_health = 400,
     corpse = "gun-turret-remnants",
@@ -107,6 +107,8 @@ data:extend { {
         movement_slow_down_factor = 0,
         projectile_creation_distance = 0.5,
         projectile_center = { -0, -0.6 },
+        source_direction_count = 8,
+        use_shooter_direction = true,
         health_penalty = -1,
         rotate_penalty = 1,
         range = 50,
@@ -131,6 +133,10 @@ data:extend { {
     circuit_wire_max_distance = default_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions.create_vector(
         universal_connector_template, {
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+            { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
             { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
             { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
             { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
