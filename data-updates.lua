@@ -1,4 +1,4 @@
-local tech = require("script.technology_control")
+local tech = require("prototypes.technology_control")
 local constants = require("constants")
 
 -- soft-dependency ammos

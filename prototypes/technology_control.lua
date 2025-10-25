@@ -16,8 +16,8 @@ function technology_control.add_effect(technology, effect)
         if not data.raw.technology[technology].effects then
             data.raw.technology[technology].effects = {}
         end
-		table.insert(data.raw.technology[technology].effects, effect)
-	end
+        table.insert(data.raw.technology[technology].effects, effect)
+    end
 end
 
 function technology_control.has_unlock_recipe(technology, recipe)
@@ -32,13 +32,24 @@ function technology_control.has_unlock_recipe(technology, recipe)
 end
 
 function technology_control.add_unlock_recipe(technology, recipe)
-    technology_control.add_effect(technology, {type = "unlock-recipe", recipe = recipe})
+    technology_control.add_effect(technology, { type = "unlock-recipe", recipe = recipe })
 end
 
 function technology_control.remove_unlock_recipe(technology, recipe)
-    technology_control.remove_effect(technology, function (effect)
+    technology_control.remove_effect(technology, function(effect)
         return effect.type == "unlock-recipe" and effect.recipe == recipe
     end)
+end
+
+function technology_control.remove_prerequisite(technology, prerequisite_to_remove)
+    if data.raw.technology[technology] and data.raw.technology[technology].prerequisites then
+        for index, prerequisite in ipairs(data.raw.technology[technology].prerequisites) do
+            if prerequisite == prerequisite_to_remove then
+                table.remove(data.raw.technology[technology].prerequisites, index)
+                break
+            end
+        end
+    end
 end
 
 return technology_control

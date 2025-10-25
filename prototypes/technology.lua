@@ -8,12 +8,13 @@ data:extend {
         effects = {
             { type = "unlock-recipe", recipe = "mortar-turret" },
         },
-        prerequisites = { "gun-turret", "military-2" },
+        prerequisites = { "gun-turret", "military-science-pack" },
         unit = {
             count = 200,
             ingredients = {
                 { "automation-science-pack", 1 },
-                { "logistic-science-pack",   1 }
+                { "logistic-science-pack",   1 },
+                { "military-science-pack",   1 },
             },
             time = 30
         },

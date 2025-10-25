@@ -3,9 +3,9 @@ local constants = require("constants")
 data:extend{
     {
         type = "bool-setting",
-        name = constants.name_prefix.."enable-8-direction-mortar-turret",
+        name = constants.name_prefix.."directional-turret-range",
         setting_type = "startup",
-        default_value = false,
+        default_value = true,
     },
     {
         type = "bool-setting",

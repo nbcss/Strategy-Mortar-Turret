@@ -1,5 +1,16 @@
-local tech = require("script.technology_control")
+local tech = require("prototypes.technology_control")
 local constants = require("constants")
+
+-- update ironclad explosive prerequisites
+tech.remove_prerequisite("ironclad", "explosives")
+if data.raw["recipe"]["mortar-bomb"] then
+    for index, ingredent in ipairs(data.raw["recipe"]["mortar-bomb"].ingredients) do
+        if ingredent.type == "item" and ingredent.name == "explosives" then
+            table.remove(data.raw["recipe"]["mortar-bomb"].ingredients, index)
+            break
+        end
+    end
+end
 
 -- mortar-cluster-bomb unlock by military-4
 tech.remove_unlock_recipe("ironclad", "mortar-cluster-bomb")
@@ -22,13 +33,6 @@ if settings.startup[constants.name_prefix .. "remove-aai-ironclad"].value == tru
     data.raw["recipe"]["ironclad-recycling"] = nil
     data.raw["technology"]["ironclad"] = nil
     for _, technology in pairs(data.raw.technology) do
-        if technology.prerequisites then
-            for index, prerequisite in pairs(technology.prerequisites) do
-                if prerequisite == "ironclad" then
-                    table.remove(technology.prerequisites, index)
-                    break
-                end
-            end
-        end
+        tech.remove_prerequisite(technology, "ironclad")
     end
 end

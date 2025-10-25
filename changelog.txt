@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 25. 10. 2025
+  Features:
+    - Added startup setting to remove AAI Ironclad from game (default false)
+    - Added startup setting to change the mortar turret range to 360 angle (default false)
+  Changes:
+    - Mortar turret now require military science pack to research
+    - Removed explosives ingredient from basic mortar bomb
+    - Moved some technology dependencies to make progress more consistent
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 24. 10. 2025
   Changes:
