@@ -6,6 +6,7 @@ Date: 26. 10. 2025
   Bugfixes:
     - Fixed mortar turret was using basic mortar bomb shooting speed modifier
     - Fixed recipe is using ammo subgroup
+    - Fixed compatibility issue with SmallRobot
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 25. 10. 2025

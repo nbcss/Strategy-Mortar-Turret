@@ -24,6 +24,7 @@ data:extend{
             ammo_category = "bullet"
         },
         follows_player = false,
+        flags = { "not-on-map", "not-blueprintable", "not-selectable-in-game", "not-deconstructable" },
         hidden = true,
         speed = 0,
         max_speed = 0,
@@ -45,6 +46,7 @@ data:extend{
             ammo_category = "bullet"
         },
         follows_player = false,
+        flags = { "not-on-map", "not-blueprintable", "not-selectable-in-game", "not-deconstructable" },
         hidden = true,
         speed = 0,
         max_speed = 0,
