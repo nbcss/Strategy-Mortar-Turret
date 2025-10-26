@@ -1,8 +1,12 @@
 local robot_control = {}
 
 function robot_control.on_init()
-    storage.turrets = {}
-    storage.robot_index = {}
+    if not storage.turrets then
+        storage.turrets = {}
+    end
+    if not storage.robot_index then
+        storage.robot_index = {}
+    end
 end
 
 function robot_control.update()

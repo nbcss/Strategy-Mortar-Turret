@@ -101,7 +101,7 @@ data:extend { {
     vehicle_impact_sound = sounds.generic_impact,
     attack_parameters = {
         type = "projectile",
-        ammo_categories = {"mortar-bomb", constants.mortar_strategy_ammo_category},
+        ammo_categories = {constants.mortar_strategy_ammo_category, "mortar-bomb"},
         -- lead_target_for_projectile_speed = 0.15,
         cooldown = 600,
         movement_slow_down_factor = 0,

@@ -1,5 +1,9 @@
 {
     "Lua.diagnostics.disable": [
         "undefined-global"
-    ]
+    ],
+    "Lua.workspace.userThirdParty": [
+        "c:\\Users\\PC\\AppData\\Roaming\\Code\\User\\workspaceStorage\\f60f87b2aef204869a40ec1e0987a033\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
+    ],
+    "Lua.workspace.checkThirdParty": "ApplyInMemory"
 }
