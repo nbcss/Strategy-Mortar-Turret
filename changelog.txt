@@ -5,6 +5,7 @@ Date: 26. 10. 2025
     - Replace "Shooting speed modifier" with "Turret cooldown penalty" to fix shooting speed issue
   Bugfixes:
     - Fixed mortar turret was using basic mortar bomb shooting speed modifier
+    - Fixed recipe is using ammo subgroup
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 25. 10. 2025

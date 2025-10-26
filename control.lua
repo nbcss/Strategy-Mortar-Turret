@@ -31,8 +31,9 @@ script.on_event(defines.events.on_script_trigger_effect, function(event)
     elseif util.string_starts_with(event.effect_id, 'mortar-turret-cooldown-') then
         if event.cause_entity.name ~= "mortar-turret" then return end
         local cooldown = tonumber(string.sub(event.effect_id, 1 + #'mortar-turret-cooldown-'))
-        event.cause_entity.disabled_by_script = true
-        cooldown_control.add(game.tick + cooldown * 60, event.cause_entity)
+        if event.cause_entity and event.cause_entity.type == "ammo_turret" then
+            cooldown_control.apply(game.tick + cooldown * 60, event.cause_entity)
+        end
     end
 end)
 
@@ -41,3 +42,12 @@ script.on_event(defines.events.on_object_destroyed, function(event)
         robot_control.on_object_destroyed(event.useful_id)
     end
 end)
+
+script.on_event(defines.events.on_entity_cloned, function(event)
+    if event.source.type == "ammo_turret" then
+        cooldown_control.on_entity_cloned(event)
+    end
+end,
+{
+    {filter = "type", type = "ammo_turret"}
+})

@@ -4,8 +4,6 @@ data.extend{
     {
         type = "recipe",
         name = "mortar-turret",
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret-icon.png",
-        icon_size = 64,
         subgroup = "turret",
         order = "b[turret]-a[gun-turret]",
         enabled = false,
@@ -22,9 +20,6 @@ data.extend{
     {
         type = "recipe",
         name = constants.poison_ammo,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-poison-ammo.png",
-        icon_size = 64,
-        subgroup = "ammo",
         enabled = false,
         energy_required = 8,
         ingredients = {
@@ -39,9 +34,6 @@ data.extend{
     {
         type = "recipe",
         name = constants.slowdown_ammo,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-slowdown-ammo.png",
-        icon_size = 64,
-        subgroup = "ammo",
         enabled = false,
         energy_required = 8,
         ingredients = {
@@ -56,9 +48,6 @@ data.extend{
     {
         type = "recipe",
         name = constants.fire_ammo,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-fire-ammo.png",
-        icon_size = 64,
-        subgroup = "ammo",
         enabled = false,
         energy_required = 8,
         ingredients = {
@@ -73,9 +62,6 @@ data.extend{
     {
         type = "recipe",
         name = constants.defender_ammo,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-defender-ammo.png",
-        icon_size = 64,
-        subgroup = "ammo",
         enabled = false,
         energy_required = 8,
         ingredients = {
@@ -90,9 +76,6 @@ data.extend{
     {
         type = "recipe",
         name = constants.distractor_ammo,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-distractor-ammo.png",
-        icon_size = 64,
-        subgroup = "ammo",
         enabled = false,
         energy_required = 8,
         ingredients = {
@@ -107,9 +90,6 @@ data.extend{
     {
         type = "recipe",
         name = constants.destroyer_ammo,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-destroyer-ammo.png",
-        icon_size = 64,
-        subgroup = "ammo",
         enabled = false,
         energy_required = 8,
         ingredients = {
@@ -124,9 +104,6 @@ data.extend{
     {
         type = "recipe",
         name = constants.energy_ammo,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-energy-ammo.png",
-        icon_size = 64,
-        subgroup = "ammo",
         enabled = false,
         energy_required = 8,
         ingredients = {
@@ -141,9 +118,6 @@ data.extend{
     {
         type = "recipe",
         name = constants.heavy_ammo,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-heavy-ammo.png",
-        icon_size = 64,
-        subgroup = "ammo",
         enabled = false,
         energy_required = 8,
         ingredients = {
