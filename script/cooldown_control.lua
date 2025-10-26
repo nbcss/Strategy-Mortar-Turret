@@ -43,8 +43,15 @@ function cooldown_control.apply(length, entity)
     if length <= 0 then return end
     if entity.disabled_by_script then return end
 
-    local end_tick = game.tick + length
     entity.disabled_by_script = true
+    if not entity.custom_status then
+        entity.custom_status = {
+            diode = defines.entity_status_diode.yellow,
+            label = {"strategy-mortar-turret.status-in-cooldown"},
+        }
+    end
+
+    local end_tick = game.tick + length
     storage.cooldown_turrets[entity.unit_number] = {
         entity = entity,
         end_tick = end_tick,
@@ -66,7 +73,10 @@ function cooldown_control.reenable(unit_number)
 
     if not cooldown_turret.entity.valid then return end
 
-    task.entity.disabled_by_script = false
+    cooldown_turret.entity.disabled_by_script = false
+    if cooldown_turret.entity.custom_status and cooldown_turret.entity.custom_status.label[1] == "strategy-mortar-turret.status-in-cooldown" then
+        cooldown_turret.entity.custom_status = nil
+    end
 end
 
 return cooldown_control
