@@ -7,26 +7,7 @@ require("prototypes.stream")
 require("prototypes.robot")
 require("prototypes.recipe")
 require("prototypes.technology")
-
-local beam_effect = util.table.deepcopy(data.raw["beam"]["electric-beam"])
-beam_effect.name = "electric-beam-no-damage"
-beam_effect.action = nil
-
-data:extend{ beam_effect,
-    {
-        type = "ammo-category",
-        name = constants.mortar_strategy_ammo_category,
-        icon = "__aai-vehicles-ironclad__/graphics/icons/mortar-bomb-ammo-category.png",
-        subgroup = "ammo-category",
-        bonus_gui_order = "z",
-    },
-    {
-        type = "item-subgroup",
-        name = constants.mortar_ammo_subgroup,
-        group = "combat",
-        order = "b-a"
-    }
-}
+require("prototypes.misc")
 
 -- change to 360 angle turret
 if settings.startup[constants.name_prefix.."directional-turret-range"].value == false then

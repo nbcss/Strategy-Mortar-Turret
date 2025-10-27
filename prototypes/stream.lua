@@ -346,4 +346,26 @@ data:extend {
             }
         }
     } },
+    -- Illumination stream
+    util.merge { mortar_stream_template, {
+        name = constants.illumination_stream,
+        particle = data.raw["projectile"]["destroyer-capsule"].animation,
+        action = {
+            type = "direct",
+            action_delivery = {
+                type = "instant",
+                target_effects = {
+                    {
+                        type = "create-entity",
+                        entity_name = "mortar-turret-illumination-effect",
+                    },
+                    {
+                        type = "create-entity",
+                        show_in_tooltip = true,
+                        entity_name = "mortar-turret-illumination-trigger",
+                    }
+                }
+            }
+        }
+    } },
 }

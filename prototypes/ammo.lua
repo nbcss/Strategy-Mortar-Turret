@@ -246,7 +246,7 @@ data:extend{
             }
         }
     },
-        {
+    {
         type = "ammo",
         name = constants.energy_ammo,
         order = "i",
@@ -310,5 +310,40 @@ data:extend{
                 }
             }
         }
-    }
+    },
+    {
+        type = "ammo",
+        name = constants.illumination_ammo,
+        order = "k",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-energy-ammo.png",
+        icon_mipmaps = 1,
+        icon_size = 64,
+        subgroup = constants.mortar_ammo_subgroup,
+        stack_size = 200,
+        custom_tooltip_fields = {
+            {
+                name = {"strategy-mortar-turret.base-illumination-damage-bonus"},
+                value = {"strategy-mortar-turret.percentage-bonus", tostring(10)},
+            },
+            {
+                name = {"strategy-mortar-turret.night-illumination-damage-bonus"},
+                value = {"strategy-mortar-turret.percentage-bonus", tostring(30)},
+            }
+        },
+		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_type = {
+            target_type = "position",
+            clamp_position = true,
+            range_modifier = 1,
+            cooldown_modifier = 1,
+            action = {
+                type = "direct",
+                action_delivery = {
+                    type = "stream",
+                    stream = constants.illumination_stream,
+                    source_offset = source_offset
+                }
+            }
+        }
+    },
 }

@@ -108,7 +108,7 @@ data:extend { {
         projectile_creation_distance = 0.5,
         projectile_center = { -0, -0.6 },
         health_penalty = 0,
-        rotate_penalty = 5,
+        rotate_penalty = 1,
         range = 50,
         min_range = 10,
         turn_range = 0.375,
