@@ -15,6 +15,10 @@ data:extend {
             {
                 name = { "strategy-mortar-turret.turret-cooldown-penalty" },
                 value = { "seconds", tostring(10) },
+            },
+            {
+                name = { "description.duration" },
+                value = { "seconds", tostring(20) },
             }
         },
         ammo_category = constants.mortar_strategy_ammo_category,
@@ -164,7 +168,7 @@ data:extend {
         custom_tooltip_fields = {
             {
                 name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(15) },
+                value = { "seconds", tostring(10) },
             }
         },
         ammo_category = constants.mortar_strategy_ammo_category,
@@ -192,7 +196,7 @@ data:extend {
                         type = "instant",
                         source_effects = {
                             type = "script",
-                            effect_id = "mortar-turret-cooldown-15"
+                            effect_id = "mortar-turret-cooldown-10"
                         }
                     }
                 }
@@ -211,7 +215,7 @@ data:extend {
         custom_tooltip_fields = {
             {
                 name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(20) },
+                value = { "seconds", tostring(15) },
             }
         },
         ammo_category = constants.mortar_strategy_ammo_category,
@@ -239,7 +243,7 @@ data:extend {
                         type = "instant",
                         source_effects = {
                             type = "script",
-                            effect_id = "mortar-turret-cooldown-20"
+                            effect_id = "mortar-turret-cooldown-15"
                         }
                     }
                 }
@@ -323,11 +327,15 @@ data:extend {
         custom_tooltip_fields = {
             {
                 name = { "strategy-mortar-turret.base-illumination-damage-bonus" },
-                value = { "strategy-mortar-turret.percentage-bonus", tostring(10) },
+                value = { "format-percent", tostring(10) },
             },
             {
                 name = { "strategy-mortar-turret.night-illumination-damage-bonus" },
-                value = { "strategy-mortar-turret.percentage-bonus", tostring(30) },
+                value = { "format-percent", tostring(30) },
+            },
+            {
+                name = { "description.duration" },
+                value = { "seconds", tostring(30) },
             }
         },
         ammo_category = constants.mortar_strategy_ammo_category,
