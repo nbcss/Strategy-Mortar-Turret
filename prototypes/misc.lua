@@ -102,7 +102,7 @@ data.extend {
             width = 64,
             height = 64,
             frame_count = 16,
-            animation_speed = 16 / 10,
+            animation_speed = 16 / 20,
         },
         light = { intensity = 1.0, size = 50, color = { r = 1.000, g = 0.888, b = 0.419 } },
         light_intensity_factor_final = 1.0,
@@ -168,6 +168,6 @@ data.extend {
                 }
             }
         },
-        action_cooldown = 10
+        action_cooldown = 20
     },
 }
