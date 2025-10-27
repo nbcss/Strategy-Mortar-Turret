@@ -1,7 +1,7 @@
 local constants = require("constants")
 local source_offset = { 0, 0.25 }
 
-data:extend{
+data:extend {
     {
         type = "ammo",
         name = constants.poison_ammo,
@@ -13,11 +13,11 @@ data:extend{
         stack_size = 200,
         custom_tooltip_fields = {
             {
-                name = {"strategy-mortar-turret.turret-cooldown-penalty"},
-                value = {"seconds", tostring(10)},
+                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
+                value = { "seconds", tostring(10) },
             }
         },
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -52,11 +52,11 @@ data:extend{
         stack_size = 200,
         custom_tooltip_fields = {
             {
-                name = {"strategy-mortar-turret.turret-cooldown-penalty"},
-                value = {"seconds", tostring(15)},
+                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
+                value = { "seconds", tostring(15) },
             }
         },
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -90,7 +90,7 @@ data:extend{
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -116,11 +116,11 @@ data:extend{
         stack_size = 200,
         custom_tooltip_fields = {
             {
-                name = {"strategy-mortar-turret.turret-cooldown-penalty"},
-                value = {"seconds", tostring(10)},
+                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
+                value = { "seconds", tostring(10) },
             }
         },
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -163,11 +163,11 @@ data:extend{
         stack_size = 200,
         custom_tooltip_fields = {
             {
-                name = {"strategy-mortar-turret.turret-cooldown-penalty"},
-                value = {"seconds", tostring(15)},
+                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
+                value = { "seconds", tostring(15) },
             }
         },
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -210,11 +210,11 @@ data:extend{
         stack_size = 200,
         custom_tooltip_fields = {
             {
-                name = {"strategy-mortar-turret.turret-cooldown-penalty"},
-                value = {"seconds", tostring(20)},
+                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
+                value = { "seconds", tostring(20) },
             }
         },
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -255,7 +255,7 @@ data:extend{
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -282,11 +282,11 @@ data:extend{
         stack_size = 200,
         custom_tooltip_fields = {
             {
-                name = {"strategy-mortar-turret.turret-cooldown-penalty"},
-                value = {"seconds", tostring(20)},
+                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
+                value = { "seconds", tostring(20) },
             }
         },
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -315,22 +315,22 @@ data:extend{
         type = "ammo",
         name = constants.illumination_ammo,
         order = "k",
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-energy-ammo.png",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo.png",
         icon_mipmaps = 1,
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
         custom_tooltip_fields = {
             {
-                name = {"strategy-mortar-turret.base-illumination-damage-bonus"},
-                value = {"strategy-mortar-turret.percentage-bonus", tostring(10)},
+                name = { "strategy-mortar-turret.base-illumination-damage-bonus" },
+                value = { "strategy-mortar-turret.percentage-bonus", tostring(10) },
             },
             {
-                name = {"strategy-mortar-turret.night-illumination-damage-bonus"},
-                value = {"strategy-mortar-turret.percentage-bonus", tostring(30)},
+                name = { "strategy-mortar-turret.night-illumination-damage-bonus" },
+                value = { "strategy-mortar-turret.percentage-bonus", tostring(30) },
             }
         },
-		ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
@@ -339,9 +339,31 @@ data:extend{
             action = {
                 type = "direct",
                 action_delivery = {
-                    type = "stream",
-                    stream = constants.illumination_stream,
-                    source_offset = source_offset
+                    {
+                        type = "stream",
+                        stream = constants.illumination_stream,
+                        source_offset = source_offset,
+                        source_effects = {
+                            type = "play-sound",
+                            play_on_target_position = true,
+                            sound = {
+                                aggregation = {
+                                    max_count = 1,
+                                    remove = false
+                                },
+                                variations = {
+                                    {
+                                        filename = "__strategy-mortar-turret__/sounds/flare-launch1.ogg",
+                                        volume = 0.5
+                                    },
+                                    {
+                                        filename = "__strategy-mortar-turret__/sounds/flare-launch2.ogg",
+                                        volume = 0.5
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -17,6 +17,7 @@ tech.add_unlock_recipe("distractor", constants.distractor_ammo)
 tech.add_unlock_recipe("destroyer", constants.destroyer_ammo)
 tech.add_unlock_recipe("discharge-defense-equipment", constants.energy_ammo)
 tech.add_unlock_recipe("military-4", constants.heavy_ammo)
+tech.add_unlock_recipe("sulfur-processing", constants.illumination_ammo)
 
 -- bonus technologies
 tech.add_effect("weapon-shooting-speed-3", {type = "gun-speed", ammo_category = constants.mortar_strategy_ammo_category, modifier = 0.2})

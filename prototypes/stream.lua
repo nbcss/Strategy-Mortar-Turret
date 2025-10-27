@@ -349,7 +349,13 @@ data:extend {
     -- Illumination stream
     util.merge { mortar_stream_template, {
         name = constants.illumination_stream,
-        particle = data.raw["projectile"]["destroyer-capsule"].animation,
+        particle = {
+            filename = "__strategy-mortar-turret__/graphics/animations/flare.png",
+            priority = "extra-high",
+            width = 128,
+            height = 128,
+            frame_count = 1,
+        },
         action = {
             type = "direct",
             action_delivery = {
@@ -357,12 +363,8 @@ data:extend {
                 target_effects = {
                     {
                         type = "create-entity",
-                        entity_name = "mortar-turret-illumination-effect",
-                    },
-                    {
-                        type = "create-entity",
                         show_in_tooltip = true,
-                        entity_name = "mortar-turret-illumination-trigger",
+                        entity_name = "mortar-turret-illumination-effect",
                     }
                 }
             }

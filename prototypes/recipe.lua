@@ -129,4 +129,18 @@ data.extend{
             {type = "item", name = constants.heavy_ammo, amount = 1},
         }
     },
+    {
+        type = "recipe",
+        name = constants.illumination_ammo,
+        enabled = false,
+        energy_required = 8,
+        ingredients = {
+            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "sulfur", amount = 3},
+            {type = "item", name = "coal", amount = 1}
+        },
+        results = {
+            {type = "item", name = constants.illumination_ammo, amount = 1},
+        }
+    },
 }

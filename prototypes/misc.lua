@@ -77,55 +77,91 @@ data.extend {
         },
     },
     {
-        type = "combat-robot",
-        name = "mortar-turret-illumination-effect",
-        attack_parameters = {
-            type = "projectile",
-            cooldown = 10000000,
-            range = 0,
-            damage_modifier = 0.1,
-            ammo_type = {},
-            ammo_category = "bullet"
+        type = "trivial-smoke",
+        name = "illuminating-smoke",
+        animation = {
+            filename = "__base__/graphics/entity/smoke-fast/smoke-fast.png",
+            priority = "high",
+            width = 50,
+            height = 50,
+            frame_count = 16,
+            animation_speed = 16 / 60,
+            scale = 0.5
         },
-        follows_player = false,
-        flags = { "not-on-map", "not-blueprintable", "not-selectable-in-game", "not-deconstructable" },
-        hidden = true,
-        speed = 0,
-        max_speed = 0,
-        time_to_live = 60 * 10,
-        max_health = 10000000,
-        alert_when_damaged = false,
-        is_military_target = false,
-        light = {
-            type = "basic",
-            intensity = 0.9,
-            size = 50,
-            color = { r = 1, g = 0.7, b = 0.4, a = 0.2 },
-        },
-        -- created_effect = {},
+        duration = 60,
+        fade_away_duration = 30,
+        show_when_smoke_off = true
     },
     {
-        name = "mortar-turret-illumination-trigger",
+        type = "explosion",
+        name = "illuminating-flare",
+        flags = { "not-on-map" },
+        animations = {
+            filename = "__strategy-mortar-turret__/graphics/animations/lightning-animation.png",
+            priority = "high",
+            width = 64,
+            height = 64,
+            frame_count = 16,
+            animation_speed = 16 / 10,
+        },
+        light = { intensity = 1.0, size = 50, color = { r = 1.000, g = 0.888, b = 0.419 } },
+        light_intensity_factor_final = 1.0,
+        light_intensity_factor_initial = 1.0,
+        light_size_factor_initial = 1.0,
+        light_size_factor_final = 1.0,
+    },
+    {
+        name = "mortar-turret-illumination-effect",
         type = "smoke-with-trigger",
         flags = { "not-on-map" },
+        affected_by_wind = false,
         hidden = true,
         cyclic = true,
-        duration = 60 * 10,
+        duration = 60 * 30,
+        fade_away_duration = 60 * 1,
+        spread_duration = 10,
+        animation = {
+            filename = "__strategy-mortar-turret__/graphics/animations/flare.png",
+            priority = "high",
+            width = 128,
+            height = 128,
+            frame_count = 1,
+            scale = 0.5,
+        },
+        working_sound = {
+            sound = { filename = "__strategy-mortar-turret__/sounds/flare-burning.ogg" },
+            apparent_volume = 0.5,
+            audible_distance_modifier = 0.5,
+            max_sounds_per_type = 3,
+        },
         action = {
             type = "direct",
             action_delivery = {
                 type = "instant",
                 target_effects = {
-                    type = "nested-result",
-                    action = {
-                        type = "area",
-                        radius = 11,
-                        action_delivery = {
-                            type = "instant",
-                            target_effects = {
-                                type = "script",
-                                show_in_tooltip = true,
-                                effect_id = "mortar-turret-illumination-damage"
+                    {
+                        type = "create-explosion",
+                        entity_name = "illuminating-flare"
+                    },
+                    {
+                        type = "create-trivial-smoke",
+                        smoke_name = "illuminating-smoke",
+                        starting_frame = 4,
+                        starting_frame_deviation = 4,
+                        offsets = {{0, -1}}
+                    },
+                    {
+                        type = "nested-result",
+                        action = {
+                            type = "area",
+                            radius = 14,
+                            action_delivery = {
+                                type = "instant",
+                                target_effects = {
+                                    type = "script",
+                                    show_in_tooltip = true,
+                                    effect_id = "mortar-turret-illumination-damage"
+                                }
                             }
                         }
                     }
