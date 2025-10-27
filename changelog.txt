@@ -7,6 +7,7 @@ Date: 28. 10. 2025
     - Added duration tooltip for poison shell
   Changes:
     - Reduced turret cooldown penalty for destroyer shell and distractor shell
+    - Robots are spawn further between each other now
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 26. 10. 2025

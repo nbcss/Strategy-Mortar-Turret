@@ -327,11 +327,11 @@ data:extend {
         custom_tooltip_fields = {
             {
                 name = { "strategy-mortar-turret.base-illumination-damage-bonus" },
-                value = { "format-percent", tostring(10) },
+                value = { "format-percent", "+" .. tostring(10) },
             },
             {
                 name = { "strategy-mortar-turret.night-illumination-damage-bonus" },
-                value = { "format-percent", tostring(30) },
+                value = { "format-percent", "+" .. tostring(30) },
             },
             {
                 name = { "description.duration" },

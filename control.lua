@@ -33,7 +33,7 @@ script.on_event(defines.events.on_script_trigger_effect, function(event)
         robot_control.register_deployed_robot(event.cause_entity)
         script.register_on_object_destroyed(event.cause_entity)
     elseif event.effect_id == 'mortar-turret-illumination-damage' then
-        illumination_control.apply(event.cause_entity, event.target_entity)
+        illumination_control.apply(event.cause_entity, event.source_entity, event.target_entity)
     elseif util.string_starts_with(event.effect_id, 'mortar-turret-cooldown-') then
         if not event.cause_entity or event.cause_entity.name ~= "mortar-turret" then return end
         local cooldown = tonumber(string.sub(event.effect_id, 1 + #'mortar-turret-cooldown-'))

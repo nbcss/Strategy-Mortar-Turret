@@ -213,7 +213,7 @@ data:extend {
                         type = "create-entity",
                         show_in_tooltip = true,
                         entity_name = "deployed-distractor-robot",
-                        offsets = { { 1, -1 }, { -1, -1 }, { 0, 1 } }
+                        offsets = { { 3, -3 }, { -3, -3 }, { 0, 3 } }
                     },
                     {
                         type = "create-entity",
@@ -236,7 +236,7 @@ data:extend {
                         type = "create-entity",
                         show_in_tooltip = true,
                         entity_name = "deployed-destroyer-robot",
-                        offsets = { { -2, -2 }, { -2, 2 }, { 2, -2 }, { 2, 2 }, { 0, 0 } }
+                        offsets = { { -4, -4 }, { -4, 4 }, { 4, -4 }, { 4, 4 }, { 0, 0 } }
                     },
                     {
                         type = "create-entity",

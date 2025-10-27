@@ -20,7 +20,7 @@ data:extend { {
     folding_sound = sounds.gun_turret_deactivate,
     folding_speed = 0.08,
     inventory_size = 1,
-    automated_ammo_count = 10,
+    automated_ammo_count = 5,
     alert_when_attacking = true,
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
