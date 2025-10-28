@@ -121,7 +121,7 @@ data.extend{
         enabled = false,
         energy_required = 8,
         ingredients = {
-            {type = "item", name = "steel-plate", amount = 15},
+            {type = "item", name = "steel-plate", amount = 10},
             {type = "item", name = "explosives", amount = 5},
             {type = "item", name = "advanced-circuit", amount = 2}
         },

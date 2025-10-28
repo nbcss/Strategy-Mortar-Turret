@@ -13,10 +13,6 @@ data:extend {
         stack_size = 200,
         custom_tooltip_fields = {
             {
-                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(10) },
-            },
-            {
                 name = { "description.duration" },
                 value = { "seconds", tostring(20) },
             }
@@ -25,7 +21,8 @@ data:extend {
         ammo_type = {
             target_type = "position",
             clamp_position = true,
-            range_modifier = 1,
+            range_modifier = 1.0,
+            cooldown_modifier = 2.0,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -33,13 +30,6 @@ data:extend {
                         type = "stream",
                         stream = constants.poison_stream,
                         source_offset = source_offset
-                    },
-                    {
-                        type = "instant",
-                        source_effects = {
-                            type = "script",
-                            effect_id = "mortar-turret-cooldown-10"
-                        }
                     }
                 }
             }
@@ -54,18 +44,12 @@ data:extend {
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
-        custom_tooltip_fields = {
-            {
-                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(15) },
-            }
-        },
         ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
-            range_modifier = 1,
-            cooldown_modifier = 1,
+            range_modifier = 1.0,
+            cooldown_modifier = 2.0,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -78,7 +62,7 @@ data:extend {
                         type = "instant",
                         source_effects = {
                             type = "script",
-                            effect_id = "mortar-turret-cooldown-15"
+                            effect_id = "mortar-turret-cooldown-10"
                         }
                     }
                 }
@@ -118,18 +102,12 @@ data:extend {
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
-        custom_tooltip_fields = {
-            {
-                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(10) },
-            }
-        },
         ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
             range_modifier = 0.8,
-            cooldown_modifier = 1,
+            cooldown_modifier = 1.5,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -143,13 +121,6 @@ data:extend {
                         source_effects = {
                             type = "script",
                             effect_id = "mortar-turret-robot-shoot"
-                        }
-                    },
-                    {
-                        type = "instant",
-                        source_effects = {
-                            type = "script",
-                            effect_id = "mortar-turret-cooldown-10"
                         }
                     }
                 }
@@ -165,18 +136,12 @@ data:extend {
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
-        custom_tooltip_fields = {
-            {
-                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(10) },
-            }
-        },
         ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
             range_modifier = 0.8,
-            cooldown_modifier = 1,
+            cooldown_modifier = 1.5,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -190,13 +155,6 @@ data:extend {
                         source_effects = {
                             type = "script",
                             effect_id = "mortar-turret-robot-shoot"
-                        }
-                    },
-                    {
-                        type = "instant",
-                        source_effects = {
-                            type = "script",
-                            effect_id = "mortar-turret-cooldown-10"
                         }
                     }
                 }
@@ -212,18 +170,12 @@ data:extend {
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
-        custom_tooltip_fields = {
-            {
-                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(15) },
-            }
-        },
         ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
             range_modifier = 0.8,
-            cooldown_modifier = 1,
+            cooldown_modifier = 2.0,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -237,13 +189,6 @@ data:extend {
                         source_effects = {
                             type = "script",
                             effect_id = "mortar-turret-robot-shoot"
-                        }
-                    },
-                    {
-                        type = "instant",
-                        source_effects = {
-                            type = "script",
-                            effect_id = "mortar-turret-cooldown-15"
                         }
                     }
                 }
@@ -287,7 +232,7 @@ data:extend {
         custom_tooltip_fields = {
             {
                 name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(20) },
+                value = { "seconds", tostring(10) },
             }
         },
         ammo_category = constants.mortar_strategy_ammo_category,
@@ -295,7 +240,7 @@ data:extend {
             target_type = "position",
             clamp_position = true,
             range_modifier = 1.6,
-            cooldown_modifier = 1.0,
+            cooldown_modifier = 2.0,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -343,7 +288,7 @@ data:extend {
             target_type = "position",
             clamp_position = true,
             range_modifier = 1,
-            cooldown_modifier = 1,
+            cooldown_modifier = 1.5,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -377,3 +322,8 @@ data:extend {
         }
     },
 }
+
+-- TODO
+-- transformation shell: small chance to change enemy force to friendly
+-- lure shell: spawn few high health targets and draw enemies attention
+-- ??: spawn shotgun projectiles around hit location
