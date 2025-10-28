@@ -13,7 +13,6 @@ require("prototypes.ammos.energy_ammo")
 require("prototypes.ammos.heavy_ammo")
 require("prototypes.ammos.illumination_ammo")
 -- other
-require("prototypes.technology")
 require("prototypes.misc")
 
 -- TODO

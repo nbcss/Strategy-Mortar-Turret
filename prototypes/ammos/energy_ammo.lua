@@ -13,7 +13,7 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "i",
+        order = "g",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-energy-ammo.png",
         icon_mipmaps = 1,
         icon_size = 64,

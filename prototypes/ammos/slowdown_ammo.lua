@@ -14,6 +14,12 @@ data:extend {
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
+        custom_tooltip_fields = {
+            {
+                name = { "strategy-mortar-turret.turret-cooldown-penalty" },
+                value = { "seconds", tostring(10) },
+            }
+        },
         ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",

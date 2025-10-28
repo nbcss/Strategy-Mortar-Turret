@@ -8,7 +8,7 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "f",
+        order = "i",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-defender-ammo.png",
         icon_mipmaps = 1,
         icon_size = 64,
