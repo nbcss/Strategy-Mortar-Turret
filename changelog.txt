@@ -4,11 +4,12 @@ Date: 28. 10. 2025
   Features:
     - Added illumination shell, which can light up an area and provide damage bonus on illuminated target. (Thanks Yehn for the original flare resource)
     - Added description for all shell types
-    - Added duration tooltip for poison shell
+    - Added duration tooltip for poison shell & illumination shell
   Changes:
     - Robots are spawn further between each other now
     - Revert to shooting speed modifier for most shells
     - Reduced the craft cost of heavy shell
+    - Increased stack size and recipe time of mortar turret
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 26. 10. 2025
