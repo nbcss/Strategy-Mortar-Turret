@@ -10,7 +10,6 @@ data:extend {
         name = ammo_name,
         order = "h",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-heavy-ammo.png",
-        icon_mipmaps = 1,
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
