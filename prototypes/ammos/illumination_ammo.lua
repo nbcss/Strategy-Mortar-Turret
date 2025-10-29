@@ -9,8 +9,16 @@ data:extend {
         type = "ammo",
         name = ammo_name,
         order = "f",
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo.png",
-        icon_size = 64,
+        icons = {
+            {
+                icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo-base.png",
+                icon_size = 64,
+            },
+            {
+                icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo-glow.png",
+                icon_size = 64,
+            },
+        },
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
         custom_tooltip_fields = {
