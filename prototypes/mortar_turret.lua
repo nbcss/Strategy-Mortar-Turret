@@ -20,7 +20,7 @@ data:extend{
         enabled = false,
         energy_required = 10,
         ingredients = {
-            {type = "item", name = "engine-unit", amount = 5},
+            {type = "item", name = "engine-unit", amount = 10},
             {type = "item", name = "steel-plate", amount = 5},
             {type = "item", name = "iron-gear-wheel", amount = 10},
         },
@@ -36,10 +36,11 @@ data:extend{
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret.png",
         effects = {
             { type = "unlock-recipe", recipe = "mortar-turret" },
+            { type = "unlock-recipe", recipe = "mortar-bomb" },
         },
         prerequisites = { "gun-turret", "military-science-pack" },
         unit = {
-            count = 200,
+            count = 150,
             ingredients = {
                 { "automation-science-pack", 1 },
                 { "logistic-science-pack",   1 },

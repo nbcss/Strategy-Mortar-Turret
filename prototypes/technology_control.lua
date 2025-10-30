@@ -41,6 +41,18 @@ function technology_control.remove_unlock_recipe(technology, recipe)
     end)
 end
 
+function technology_control.add_prerequisite(technology, prerequisite_to_add)
+    if data.raw.technology[technology] and data.raw.technology[technology].prerequisites then
+        for index, prerequisite in ipairs(data.raw.technology[technology].prerequisites) do
+            if prerequisite == prerequisite_to_add then
+                table.remove(data.raw.technology[technology].prerequisites, index)
+                break
+            end
+        end
+        table.insert(data.raw.technology[technology].prerequisites, prerequisite_to_add)
+    end
+end
+
 function technology_control.remove_prerequisite(technology, prerequisite_to_remove)
     if data.raw.technology[technology] and data.raw.technology[technology].prerequisites then
         for index, prerequisite in ipairs(data.raw.technology[technology].prerequisites) do

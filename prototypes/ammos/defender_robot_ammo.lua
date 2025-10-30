@@ -1,8 +1,8 @@
 local constants = require("constants")
 local common = require("prototypes.common")
 local source_offset = { 0, 0.25 }
-local ammo_name = constants.defender_ammo
-local projectile_stream_name = constants.defender_stream
+local ammo_name = "mortar-defender-robot-ammo"
+local projectile_stream_name = "mortar-defender-robot-projectile-stream"
 
 data:extend {
     {
@@ -51,6 +51,26 @@ data:extend {
         results = {
             {type = "item", name = ammo_name, amount = 1},
         }
+    },
+    {
+        type = "technology",
+        name = ammo_name,
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-defender-ammo.png",
+        icon_size = 64,
+        effects = {
+            { type = "unlock-recipe", recipe = ammo_name },
+        },
+        prerequisites = { "mortar-turret", "defender" },
+        unit = {
+            count = 100,
+            ingredients = {
+                { "automation-science-pack", 1 },
+                { "logistic-science-pack",   1 },
+                { "military-science-pack",   1 },
+            },
+            time = 30
+        },
+        order = "e-c-c"
     },
     common.create_mortar_stream{
         name = projectile_stream_name,

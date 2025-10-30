@@ -12,13 +12,9 @@ require("prototypes.ammos.destroyer_robot_ammo")
 require("prototypes.ammos.energy_ammo")
 require("prototypes.ammos.heavy_ammo")
 require("prototypes.ammos.illumination_ammo")
+-- require("prototypes.ammos.shrapnel_ammo")
 -- other
 require("prototypes.misc")
-
--- TODO
--- transformation shell: small chance to change enemy force
--- lure shell: spawn few high health targets and draw enemies attention
--- ??: spawn shotgun projectiles around hit location
 
 -- change to 360 angle turret
 if settings.startup[constants.name_prefix.."directional-turret-range"].value == false then
