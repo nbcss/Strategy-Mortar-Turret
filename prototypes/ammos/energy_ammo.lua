@@ -4,6 +4,10 @@ local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-energy-ammo"
 local projectile_stream_name = "mortar-energy-projectile-stream"
 
+if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
+    return
+end
+
 local beam_effect = util.table.deepcopy(data.raw["beam"]["electric-beam"])
 beam_effect.name = "electric-beam-no-damage"
 beam_effect.action = nil

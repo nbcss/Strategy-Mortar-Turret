@@ -5,8 +5,8 @@ local constants = require("constants")
 tech.remove_prerequisite("ironclad", "explosives")
 if data.raw["recipe"]["mortar-bomb"] then
     data.raw["recipe"]["mortar-bomb"].ingredients = {
-        { type = "item", name = "steel-plate",     amount = 2 },
-        { type = "item", name = "grenade",         amount = 2 },
+        { type = "item", name = "steel-plate", amount = 2 },
+        { type = "item", name = "grenade",     amount = 2 },
     }
 end
 
@@ -37,6 +37,16 @@ data.extend {
         order = "e-c-c"
     },
 }
+
+-- remove damage alerts for enemies to avoid hypnosis alert spam
+if settings.startup[constants.name_prefix .. "enable-ammo-mortar-hypnosis-ammo"].value == true then
+    for _, unit in pairs(data.raw["unit"]) do
+        local subgroup = data.raw["item-subgroup"][unit.subgroup]
+        if subgroup.group == "enemies" then
+            unit.alert_when_damaged = false
+        end
+    end
+end
 
 -- remove AAI ironclad in startup
 if settings.startup[constants.name_prefix .. "remove-aai-ironclad"].value == true then

@@ -4,6 +4,10 @@ local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-poison-bomb"
 local projectile_stream_name = "mortar-poison-bomb-projectile-stream"
 
+if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
+    return
+end
+
 data:extend {
     {
         type = "ammo",
@@ -78,11 +82,9 @@ data:extend {
         action = {
             {
                 type = "direct",
-                action_delivery =
-                {
+                action_delivery = {
                     type = "instant",
-                    target_effects =
-                    {
+                    target_effects = {
                         {
                             type = "create-smoke",
                             show_in_tooltip = true,

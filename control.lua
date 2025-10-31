@@ -1,6 +1,7 @@
 local robot_control = require("script.robot_control")
 local cooldown_control = require("script.cooldown_control")
 local bonus_damage_control = require("script.bonus_damage_control")
+local hypnosis_control = require("script.hypnosis_control")
 local util = require("util")
 
 script.on_init(function()
@@ -32,6 +33,12 @@ script.on_event(defines.events.on_script_trigger_effect, function(event)
     elseif event.effect_id == 'mortar-turret-robot-deploy' then
         robot_control.register_deployed_robot(event.cause_entity)
         script.register_on_object_destroyed(event.cause_entity)
+    elseif event.effect_id == 'mortar-apply-hypnosis' then
+        hypnosis_control.apply_effect(event.cause_entity, event.source_entity, event.target_entity)
+    elseif event.effect_id == 'mortar-kill-unit' then
+        if event.target_entity and event.target_entity.valid then
+            event.target_entity.die()
+        end
     elseif event.effect_id == 'mortar-turret-illumination-damage' then
         if event.target_entity and event.target_entity.valid then
             -- deal additional damage in dark environment (10% to 30% of original damage)

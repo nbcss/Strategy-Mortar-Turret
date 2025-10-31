@@ -4,6 +4,10 @@ local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-slowdown-ammo"
 local projectile_stream_name = "mortar-slowdown-projectile-stream"
 
+if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
+    return
+end
+
 data:extend {
     {
         type = "ammo",
