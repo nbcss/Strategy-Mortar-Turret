@@ -1,8 +1,11 @@
 local hypnosis_control = {}
 
+hypnosis_control.max_chance = 0.15
+hypnosis_control.hypnosis_time = 45 -- in seconds
+
 function hypnosis_control.apply_effect(cause_entity, source_entity, target_entity)
     if not target_entity or not target_entity.valid or target_entity.type ~= "unit" then return end
-    local chance = 5 / target_entity.max_health
+    local chance = math.min(hypnosis_control.max_chance, 15 / target_entity.max_health)
     if math.random() < chance then
         local force = "player"
         if cause_entity and cause_entity.valid then
@@ -11,7 +14,7 @@ function hypnosis_control.apply_effect(cause_entity, source_entity, target_entit
             force = source_entity.force.name
         end
         target_entity.force = force
-        target_entity.surface.create_entity{name="hypnosis-sticker", position=target_entity.position, target=target_entity}
+        target_entity.surface.create_entity { name = "hypnosis-sticker", position = target_entity.position, target = target_entity }
         if target_entity.commandable then
             target_entity.commandable.set_command{
                 type = defines.command.wander,

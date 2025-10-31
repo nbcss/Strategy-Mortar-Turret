@@ -1,14 +1,14 @@
 new ammos
-hypnosis shell: small chance to change enemy force
+[Done] hypnosis shell: small chance to change enemy force
 lure shell: spawn few high health robots and draw enemy attention, also explode upon death
 shrapnel shell: spawn shotgun projectiles around hit location
 repair shell: repair friendly structure
 
 extra
-enable condition for each ammo type
-dedicated turret damage technology?
-> dedicated technology for each ammo type
+[Done] enable condition for each ammo type
+[Done] dedicated technology for each ammo type
 more balance for shooting speed
+dedicated turret damage technology?
 manual override cooldown
 manual targeting
 graphics upgrade

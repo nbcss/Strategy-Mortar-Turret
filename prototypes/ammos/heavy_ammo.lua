@@ -87,6 +87,7 @@ data:extend {
     common.create_mortar_stream{
         name = projectile_stream_name,
         particle = data.raw["artillery-projectile"]["artillery-projectile"].picture,
+        target_position_deviation = 0.5,
         action = {
             {
                 type = "direct",

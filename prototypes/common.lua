@@ -1,6 +1,7 @@
 local common = {}
 
 local mortar_stream_template = table.deepcopy(data.raw["stream"]["mortar-bomb-projectile-stream"])
+mortar_stream_template.target_position_deviation = 2.0
 mortar_stream_template.action = {}
 mortar_stream_template.particle = {}
 
