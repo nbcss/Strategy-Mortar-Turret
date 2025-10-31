@@ -1,6 +1,6 @@
 local constants = require("constants")
 local common = require("prototypes.common")
-local tech = require("prototypes.technology_control")
+local tech = require("technology_tool")
 local hypnosis_control = require("script.hypnosis_control")
 local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-hypnosis-ammo"

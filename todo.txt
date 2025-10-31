@@ -7,7 +7,7 @@ repair shell: repair friendly structure
 extra
 [Done] enable condition for each ammo type
 [Done] dedicated technology for each ammo type
-more balance for shooting speed
+[Done] more balance for shooting speed
 dedicated turret damage technology?
 manual override cooldown
 manual targeting

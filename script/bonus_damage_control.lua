@@ -17,7 +17,7 @@ end
 ---@param source_entity LuaEntity effect trigger
 ---@param target_entity LuaEntity target
 function bonus_damage_control.apply(damage_name, damage_modifer, cause_entity, source_entity, target_entity)
-    if not target_entity or not target_entity.valid then
+    if not target_entity or not target_entity.valid or not target_entity.unit_number then
         return
     end
     local force = "player"

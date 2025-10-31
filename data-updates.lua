@@ -1,4 +1,4 @@
-local tech = require("prototypes.technology_control")
+local tech = require("technology_tool")
 local constants = require("constants")
 
 -- remove ammo recipes from gunboat mod
