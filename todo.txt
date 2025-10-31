@@ -9,7 +9,7 @@ extra
 [Done] enable condition for each ammo type
 [Done] dedicated technology for each ammo type
 [Done] more balance for shooting speed
-dedicated turret damage technology?
+[Done] dedicated turret damage technology?
 manual override cooldown
 manual targeting
 graphics upgrade

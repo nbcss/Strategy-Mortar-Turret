@@ -1,14 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
-Date: 31. 10. 2025
+Date: 01. 11. 2025
   Features:
     - Added hypnosis shell, which can transform enemy to your own force by chance, but unlikely to success for high health targets. Spawners and structures are immune to the effect.
     - Added startup setting for each shell type to enable/disable.
     - Added dedicated mortar turret damage technology.
+    - Added dedicated technology for each ammo type.
   Changes:
-    - Each ammo type now need dedicated technology to unlock.
     - All mortar shells received small deviation penalty, but heavy shell has improved accuracy.
     - Rebalance ironclad mortar shooting speed to have more consistent performance when using strategy mortar ammo.
+    - Rework some ironclad technology dependencies.
   Bugfixes:
     - Illumination shell have proper glow texture layer now.
     - Fixed illumination damage missing locale string.

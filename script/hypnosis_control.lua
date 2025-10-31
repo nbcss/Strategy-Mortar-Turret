@@ -1,7 +1,7 @@
 local hypnosis_control = {}
 
 hypnosis_control.max_chance = 0.15
-hypnosis_control.hypnosis_time = 45 -- in seconds
+hypnosis_control.hypnosis_time = 30 -- in seconds
 
 function hypnosis_control.apply_effect(cause_entity, source_entity, target_entity)
     if not target_entity or not target_entity.valid or target_entity.type ~= "unit" then return end
