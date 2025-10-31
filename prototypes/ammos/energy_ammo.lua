@@ -17,7 +17,7 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "g",
+        order = "ca",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-energy-ammo.png",
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
@@ -71,7 +71,6 @@ data:extend {
             },
             time = 30
         },
-        order = "e-c-c"
     },
     common.create_mortar_stream{
         name = projectile_stream_name,

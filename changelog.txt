@@ -4,6 +4,7 @@ Date: 31. 10. 2025
   Features:
     - Added hypnosis shell, which can transform enemy to your own force by chance, but unlikely to success for high health targets. Spawners and structures are immune to the effect.
     - Added startup setting for each shell type to enable/disable.
+    - Added dedicated mortar turret damage technology.
   Changes:
     - Each ammo type now need dedicated technology to unlock.
     - All mortar shells received small deviation penalty, but heavy shell has improved accuracy.

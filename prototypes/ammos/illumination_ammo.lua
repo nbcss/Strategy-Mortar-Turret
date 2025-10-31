@@ -12,7 +12,7 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "f",
+        order = "bd",
         icons = {
             {
                 icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo-base.png",
@@ -109,7 +109,6 @@ data:extend {
             },
             time = 30
         },
-        order = "e-c-c"
     },
     common.create_mortar_stream{
         name = projectile_stream_name,
