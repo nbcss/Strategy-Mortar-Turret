@@ -1,15 +1,13 @@
 new ammos
-[Done] hypnosis shell: small chance to change enemy force
-lure shell: spawn few high health robots and draw enemy attention, also explode upon death
+lure robot shell: spawn few high health robots and draw enemy attention, also explode upon death
+hunter robot shell: improved robots which actively hunt down enemy nearby
+slowdown cloud shell: produced a slowdown cloud and slowdown enemy inside
+paralysis shell: completely disable movement of targets
 shrapnel shell: spawn shotgun projectiles around hit location
 landmine shell: deploy landmine
 repair shell: repair friendly structure
 
 extra
-[Done] enable condition for each ammo type
-[Done] dedicated technology for each ammo type
-[Done] more balance for shooting speed
-[Done] dedicated turret damage technology?
 manual override cooldown
 manual targeting
 graphics upgrade

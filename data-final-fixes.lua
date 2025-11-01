@@ -43,21 +43,23 @@ data.raw["gun"]["ironclad-mortar"].attack_parameters.cooldown = 460
 data.raw["ammo"]["mortar-bomb"].ammo_type.cooldown_modifier = 1 / 3.0
 data.raw["ammo"]["mortar-cluster-bomb"].ammo_type.cooldown_modifier = 1 / 2.5
 for tech_name, _ in pairs(data.raw.technology) do
-    tech.remove_effect(tech_name, function (effect)
+    tech.remove_effect(tech_name, function(effect)
         return effect.type == "gun-speed" and effect.ammo_category == "mortar-bomb"
     end)
 end
-tech.add_effect("weapon-shooting-speed-3", {type = "gun-speed", ammo_category = "mortar-bomb", modifier = 0.4})
-tech.add_effect("weapon-shooting-speed-4", {type = "gun-speed", ammo_category = "mortar-bomb", modifier = 0.6})
-tech.add_effect("weapon-shooting-speed-5", {type = "gun-speed", ammo_category = "mortar-bomb", modifier = 0.8})
-tech.add_effect("weapon-shooting-speed-6", {type = "gun-speed", ammo_category = "mortar-bomb", modifier = 1.0})
+tech.add_effect("weapon-shooting-speed-3", { type = "gun-speed", ammo_category = "mortar-bomb", modifier = 0.4 })
+tech.add_effect("weapon-shooting-speed-4", { type = "gun-speed", ammo_category = "mortar-bomb", modifier = 0.6 })
+tech.add_effect("weapon-shooting-speed-5", { type = "gun-speed", ammo_category = "mortar-bomb", modifier = 0.8 })
+tech.add_effect("weapon-shooting-speed-6", { type = "gun-speed", ammo_category = "mortar-bomb", modifier = 1.0 })
 
 -- remove damage alerts for enemies to avoid hypnosis alert spam
 if settings.startup[constants.name_prefix .. "enable-ammo-mortar-hypnosis-ammo"].value == true then
     for _, unit in pairs(data.raw["unit"]) do
-        local subgroup = data.raw["item-subgroup"][unit.subgroup]
-        if subgroup.group == "enemies" then
-            unit.alert_when_damaged = false
+        if unit.subgroup then
+            local subgroup = data.raw["item-subgroup"][unit.subgroup]
+            if subgroup.group == "enemies" then
+                unit.alert_when_damaged = false
+            end
         end
     end
 end
