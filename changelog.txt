@@ -1,13 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 02. 11. 2025
+  Features:
+    - Added shrapnel bomb, an efficient ammo against early enemies by eject many pellets from target location, unlock by mortar turret.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 02. 11. 2025
   Bugfixes:
-    - Fix compatibility issue with some mods
+    - Fix compatibility issue with some mods.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 01. 11. 2025
   Features:
-    - Added hypnosis shell, which can transform enemy to your own force by chance, but unlikely to success for high health targets. Spawners and structures are immune to the effect.
+    - Added hypnosis shell, which can transform enemy to your own force by chance, but unlikely to success for high health targets.
     - Added startup setting for each shell type to enable/disable.
     - Added dedicated mortar turret damage technology.
     - Added dedicated technology for each ammo type.

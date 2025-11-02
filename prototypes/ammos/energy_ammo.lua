@@ -88,6 +88,15 @@ data:extend {
                         },
                         {
                             type = "create-entity",
+                            entity_name = "small-scorchmark-tintable",
+                            check_buildability = true
+                        },
+                        {
+                            type = "invoke-tile-trigger",
+                            repeat_count = 1
+                        },
+                        {
+                            type = "create-entity",
                             entity_name = "mortar-turret-electric-effect"
                         }
                     }

@@ -4,6 +4,7 @@ constants.name_prefix = "strategy_mortar_turret-"
 constants.mortar_ammo_subgroup = "mortar-ammo"
 constants.mortar_strategy_ammo_category = "strategy-mortar-ammo"
 constants.ammo_types = {
+    "mortar-shrapnel-ammo",
     "mortar-poison-bomb",
     "mortar-slowdown-ammo",
     "mortar-fire-bomb",

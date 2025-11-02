@@ -13,7 +13,7 @@ require("prototypes.ammos.energy_ammo")
 require("prototypes.ammos.heavy_ammo")
 require("prototypes.ammos.illumination_ammo")
 require("prototypes.ammos.hypnosis_ammo")
--- require("prototypes.ammos.shrapnel_ammo")
+require("prototypes.ammos.shrapnel_ammo")
 -- other
 require("prototypes.misc")
 
