@@ -15,6 +15,7 @@ constants.ammo_types = {
     "mortar-defender-robot-ammo",
     "mortar-distractor-robot-ammo",
     "mortar-destroyer-robot-ammo",
+    "mortar-lure-robot-ammo",
 }
 
 return constants

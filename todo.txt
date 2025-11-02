@@ -1,5 +1,5 @@
 new ammos
-lure robot shell: spawn few high health robots and draw enemy attention, also explode upon death
+> lure robot shell: spawn few high health robots and draw enemy attention, also explode upon death
 hunter robot shell: improved robots which actively hunt down enemy nearby
 slowdown cloud shell: produced a slowdown cloud and slowdown enemy inside
 paralysis shell: completely disable movement of targets

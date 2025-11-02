@@ -27,7 +27,7 @@ data:extend {
             target_type = "position",
             clamp_position = true,
             range_modifier = 1,
-            cooldown_modifier = 1,
+            cooldown_modifier = 1 / 0.75,
             action = {
                 type = "direct",
                 action_delivery = {
