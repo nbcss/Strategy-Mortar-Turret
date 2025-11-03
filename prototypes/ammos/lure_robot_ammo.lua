@@ -3,8 +3,10 @@ local common = require("prototypes.common")
 local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-lure-robot-ammo"
 local projectile_stream_name = "mortar-lure-robot-projectile-stream"
+local detonation_damage = 50
+local tint_color = { 0.94, 0.14, 0.14, 0.5 }
 
-if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
+if settings.startup[constants.name_prefix .. "enable-ammo-" .. ammo_name].value == false then
     return
 end
 
@@ -17,6 +19,12 @@ data:extend {
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
+        custom_tooltip_fields = {
+            {
+                name = { "strategy-mortar-turret.detonation-damage" },
+                value = { "", tostring(detonation_damage), " ", { "damage-type-name.explosion" } },
+            },
+        },
         ammo_category = constants.mortar_strategy_ammo_category,
         ammo_type = {
             target_type = "position",
@@ -102,6 +110,26 @@ data:extend {
             cooldown = 60,
             damage_modifier = 0.2,
         },
+        idle = {
+            tint = tint_color,
+            apply_runtime_tint = true,
+            tint_as_overlay = true,
+        },
+        shadow_idle = {
+            tint = tint_color,
+            apply_runtime_tint = true,
+            tint_as_overlay = true,
+        },
+        in_motion = {
+            tint = tint_color,
+            apply_runtime_tint = true,
+            tint_as_overlay = true,
+        },
+        shadow_in_motion = {
+            tint = tint_color,
+            apply_runtime_tint = true,
+            tint_as_overlay = true,
+        },
         destroy_action = {
             type = "direct",
             action_delivery = {
@@ -136,7 +164,7 @@ data:extend {
                                     target_effects = {
                                         {
                                             type = "damage",
-                                            damage = { type = "explosion", amount = 50 },
+                                            damage = { type = "explosion", amount = detonation_damage },
                                         }
                                     }
                                 }
