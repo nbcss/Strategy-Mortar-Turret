@@ -15,7 +15,7 @@ data:extend {
         type = "ammo",
         name = ammo_name,
         order = "ac",
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-slowdown-ammo.png",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-shrapnel-ammo.png",
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
