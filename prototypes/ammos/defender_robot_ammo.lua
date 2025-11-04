@@ -65,6 +65,7 @@ data:extend {
             { type = "unlock-recipe", recipe = ammo_name },
         },
         prerequisites = { "mortar-turret", "defender" },
+        order = "xda",
         unit = {
             count = 100,
             ingredients = {

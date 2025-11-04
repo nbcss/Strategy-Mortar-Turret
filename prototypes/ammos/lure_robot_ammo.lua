@@ -4,7 +4,7 @@ local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-lure-robot-ammo"
 local projectile_stream_name = "mortar-lure-robot-projectile-stream"
 local detonation_damage = 50
-local tint_color = { 0.94, 0.14, 0.14, 0.5 }
+local tint_color = { 0.94, 0.14, 0.14, 1.0 }
 
 if settings.startup[constants.name_prefix .. "enable-ammo-" .. ammo_name].value == false then
     return
@@ -67,6 +67,7 @@ data:extend {
             { type = "unlock-recipe", recipe = ammo_name },
         },
         prerequisites = { "mortar-defender-robot-ammo", "explosives" },
+        order = "xdd",
         unit = {
             count = 150,
             ingredients = {
@@ -90,14 +91,19 @@ data:extend {
                         show_in_tooltip = true,
                         entity_name = "deployed-lure-robot",
                         -- offsets = { { 1, -1 }, { -1, -1 }, { 0, 1 } }
-                    }
+                    },
+                    -- {
+                    --     type = "create-entity",
+                    --     show_in_tooltip = true,
+                    --     entity_name = "lure-dummy-detonation",
+                    -- }
                 }
             }
         }
     },
     util.merge { data.raw["combat-robot"]["defender"], {
         name = "deployed-lure-robot",
-        max_health = 1000,
+        max_health = 600,
         follows_player = false,
         speed = 0,
         max_speed = 0,
@@ -105,30 +111,54 @@ data:extend {
         hidden = true,
         hidden_in_factoriopedia = true,
         localised_name = { "entity-name.deployed-lure-robot" },
+        resistances =
+        {
+            {
+                type = "fire",
+                percent = 95
+            },
+            {
+                type = "acid",
+                decrease = 0,
+                percent = 80
+            },
+            {
+                type = "physical",
+                decrease = 0,
+                percent = 80
+            }
+        },
         attack_parameters = {
             type = "projectile",
             cooldown = 60,
             damage_modifier = 0.2,
         },
         idle = {
-            tint = tint_color,
-            apply_runtime_tint = true,
-            tint_as_overlay = true,
-        },
-        shadow_idle = {
-            tint = tint_color,
-            apply_runtime_tint = true,
-            tint_as_overlay = true,
-        },
-        in_motion = {
-            tint = tint_color,
-            apply_runtime_tint = true,
-            tint_as_overlay = true,
-        },
-        shadow_in_motion = {
-            tint = tint_color,
-            apply_runtime_tint = true,
-            tint_as_overlay = true,
+            layers = {
+                {
+                    filename = "__base__/graphics/entity/defender-robot/defender-robot.png",
+                    priority = "high",
+                    line_length = 16,
+                    width = 56,
+                    height = 59,
+                    direction_count = 16,
+                    shift = util.by_pixel(0, 0.25),
+                    scale = 0.5,
+                    tint = tint_color,
+                },
+                {
+                    filename = "__base__/graphics/entity/defender-robot/defender-robot-mask.png",
+                    priority = "high",
+                    line_length = 16,
+                    width = 28,
+                    height = 21,
+                    direction_count = 16,
+                    shift = util.by_pixel(0, -4.75),
+                    apply_runtime_tint = true,
+                    scale = 0.5,
+                    tint = tint_color,
+                }
+            }
         },
         destroy_action = {
             type = "direct",
@@ -175,4 +205,26 @@ data:extend {
             }
         },
     } },
+    -- common.replace_merge { data.raw["land-mine"]["land-mine"], {
+    --     name = "lure-dummy-detonation",
+    --     minable = common.nil_value,
+    --     hidden = true,
+    --     hidden_in_factoriopedia = true,
+    --     action = {
+    --         type = "area",
+    --         radius = 5,
+    --         force = "enemy",
+    --         action_delivery = {
+    --             {
+    --                 type = "instant",
+    --                 target_effects = {
+    --                     {
+    --                         type = "damage",
+    --                         damage = { type = "explosion", amount = detonation_damage },
+    --                     }
+    --                 }
+    --             }
+    --         }
+    --     },
+    -- } },
 }

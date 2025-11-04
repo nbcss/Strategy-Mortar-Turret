@@ -8,12 +8,7 @@ if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == f
     return
 end
 
-local beam_effect = util.table.deepcopy(data.raw["beam"]["electric-beam"])
-beam_effect.name = "electric-beam-no-damage"
-beam_effect.action = nil
-
 data:extend {
-    beam_effect,
     {
         type = "ammo",
         name = ammo_name,
@@ -61,6 +56,7 @@ data:extend {
             { type = "unlock-recipe", recipe = ammo_name },
         },
         prerequisites = { "mortar-turret", "discharge-defense-equipment" },
+        order = "xca",
         unit = {
             count = 100,
             ingredients = {
@@ -120,6 +116,10 @@ data:extend {
             }
         }
     },
+    common.replace_merge{ data.raw["beam"]["electric-beam"], {
+        name = "electric-beam-no-damage",
+        action = common.nil_value,
+    } },
     {
         type = "combat-robot",
         name = "mortar-turret-electric-effect",

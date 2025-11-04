@@ -100,6 +100,7 @@ data:extend {
             { type = "unlock-recipe", recipe = ammo_name },
         },
         prerequisites = { "mortar-turret", "sulfur-processing" },
+        order = "xbd",
         unit = {
             count = 100,
             ingredients = {
