@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.2
-Date: 04. 11. 2025
+Date: 06. 11. 2025
   Features:
     - Added shrapnel bomb, an efficient ammo against early enemies by eject many pellets from target location, unlock by mortar turret.
     - Added lure robot shell, which can deploy 1 lure robot to draw the attention of enemies and denote itself upon run out of lifetime.

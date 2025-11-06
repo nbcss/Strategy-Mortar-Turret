@@ -91,7 +91,7 @@ data:extend {
                         target_effects = {
                             {
                                 type = "damage",
-                                damage = { type = "explosion", amount = 20 },
+                                damage = { type = "explosion", amount = 30 },
                             }
                         }
                     }
