@@ -107,7 +107,7 @@ data:extend {
         follows_player = false,
         speed = 0,
         max_speed = 0,
-        time_to_live = 60 * 4, --reduced TTL
+        time_to_live = 60 * 5, --reduced TTL
         hidden = true,
         hidden_in_factoriopedia = true,
         localised_name = { "entity-name.deployed-lure-robot" },

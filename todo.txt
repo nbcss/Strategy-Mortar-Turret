@@ -8,7 +8,8 @@ landmine shell: deploy landmine
 repair shell: repair friendly structure
 
 extra
-improved poison cloud
+> improved poison cloud
+swap turret mode (friendly target?)
 manual override cooldown
 manual targeting
 graphics upgrade
