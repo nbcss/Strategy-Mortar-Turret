@@ -20,7 +20,7 @@ function robot_control.update()
 end
 
 function robot_control.register_turret(turret)
-    if not storage.turrets[turret.unit_number] then
+    if turret.unit_number and not storage.turrets[turret.unit_number] then
         storage.turrets[turret.unit_number] = {
             robot_deploy_locator = nil,
             deployed_robots = {}
@@ -32,7 +32,7 @@ end
 
 function robot_control.register_deployed_robot(robot)
     local turret = robot.combat_robot_owner
-    if turret and storage.turrets[turret.unit_number] then
+    if turret and turret.unit_number and storage.turrets[turret.unit_number] then
         -- indexing robot turret id
         storage.robot_index[robot.unit_number] = turret.unit_number
         if robot.name == "mortar-turret-robot-locator" then

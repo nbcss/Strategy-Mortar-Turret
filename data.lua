@@ -2,6 +2,7 @@ local constants = require("constants")
 
 -- mortar turret
 require("prototypes.mortar_turret")
+require("prototypes.heavy_mortar_turret")
 -- ammos
 require("prototypes.ammos.poison_ammo")
 require("prototypes.ammos.slowdown_ammo")

@@ -73,10 +73,6 @@ data:extend {
                             type = "invoke-tile-trigger",
                             repeat_count = 1
                         },
-                        {
-                            type = "play-sound",
-                            sound = sounds.shotgun,
-                        },
                     }
                 }
             },
@@ -106,20 +102,26 @@ data:extend {
                 action_delivery = {
                     type = "instant",
                     target_effects = {
-                        type = "nested-result",
-                        action = {
-                            type = "direct",
-                            repeat_count = 120,
-                            action_delivery = {
-                                type = "projectile",
-                                projectile = "shotgun-pellet",
-                                starting_speed = 1,
-                                starting_speed_deviation = 0.1,
-                                direction_deviation = 6.28,
-                                range_deviation = 0.1,
-                                max_range = 6,
+                        {
+                            type = "nested-result",
+                            action = {
+                                type = "direct",
+                                repeat_count = 120,
+                                action_delivery = {
+                                    type = "projectile",
+                                    projectile = "shotgun-pellet",
+                                    starting_speed = 1,
+                                    starting_speed_deviation = 0.1,
+                                    direction_deviation = 6.28,
+                                    range_deviation = 0.1,
+                                    max_range = 6,
+                                }
                             }
-                        }
+                        },
+                        {
+                            type = "play-sound",
+                            sound = sounds.shotgun,
+                        },
                     }
                 }
             },

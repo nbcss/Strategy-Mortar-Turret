@@ -1,4 +1,5 @@
 local sounds = require("__base__/prototypes/entity/sounds")
+local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local constants = require("constants")
 
 data:extend{
@@ -37,7 +38,7 @@ data:extend{
             { type = "unlock-recipe", recipe = "mortar-turret" },
             { type = "unlock-recipe", recipe = "mortar-bomb" },
         },
-        prerequisites = { "gun-turret", "military-science-pack" },
+        prerequisites = { "gun-turret", "engine", "military-science-pack" },
         unit = {
             count = 150,
             ingredients = {
@@ -147,7 +148,7 @@ data:extend{
         dying_explosion = "gun-turret-explosion",
         collision_box = { { -0.7, -0.7 }, { 0.7, 0.7 } },
         selection_box = { { -1, -1 }, { 1, 1 } },
-        --damaged_trigger_effect = hit_effects.entity(),
+        damaged_trigger_effect = hit_effects.entity(),
         rotation_speed = 0.3 / 60,
         preparing_speed = 0.08,
         preparing_sound = sounds.gun_turret_activate,
@@ -237,7 +238,7 @@ data:extend{
             type = "projectile",
             ammo_categories = {constants.mortar_strategy_ammo_category, "mortar-bomb"},
             -- lead_target_for_projectile_speed = 0.05,
-            cooldown = 600,
+            cooldown = 10 * 60,
             movement_slow_down_factor = 0,
             projectile_creation_distance = 0.5,
             projectile_center = { -0, -0.6 },

@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 06. 11. 2025
+  Features:
+    - Added Heavy mortar turret, a 3x3 variant mortar turret with 90 range and +50% damage bonus, but has lower shooting speed (15s -> 6s)
+  Changes:
+    - Added Engine technology to mortar turret prerequisites
+  Bugfixes:
+    - Fixed shrapnel explosion sound was played at turret position
+---------------------------------------------------------------------------------------------------
 Version: 1.1.2
 Date: 06. 11. 2025
   Features:

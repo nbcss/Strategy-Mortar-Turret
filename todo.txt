@@ -1,14 +1,12 @@
 new ammos
-> lure robot shell: spawn few high health robots and draw enemy attention, also explode upon death
 hunter robot shell: improved robots which actively hunt down enemy nearby
 slowdown cloud shell: produced a slowdown cloud and slowdown enemy inside
 paralysis shell: completely disable movement of targets
-> shrapnel shell: spawn shotgun projectiles around hit location
 landmine shell: deploy landmine
 repair shell: repair friendly structure
 
 extra
-> improved poison cloud
+heavy mortar turret (longer range, improved damage bonus, reduced shooting speed)
 swap turret mode (friendly target?)
 manual override cooldown
 manual targeting
