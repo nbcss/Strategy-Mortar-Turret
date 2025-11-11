@@ -17,7 +17,7 @@ data:extend {
         type = "recipe",
         name = "heavy-mortar-turret",
         subgroup = "turret",
-        order = "b[turret]-a[gun-turret]",
+        order = "b-b",
         enabled = false,
         energy_required = 30,
         ingredients = {
@@ -50,6 +50,7 @@ data:extend {
             },
             time = 30
         },
+        order = "y",
     },
     {
         type = "ammo-turret",
@@ -158,8 +159,8 @@ data:extend {
         attack_parameters = {
             type = "projectile",
             ammo_categories = { constants.mortar_strategy_ammo_category, "mortar-bomb" },
-            damage_modifier = 1.5,
-            -- lead_target_for_projectile_speed = 0.05,
+            damage_modifier = 1.6,
+            lead_target_for_projectile_speed = 0.4,
             cooldown = 15 * 60,
             movement_slow_down_factor = 0,
             projectile_creation_distance = 0.8,
@@ -167,8 +168,8 @@ data:extend {
             health_penalty = 0,
             rotate_penalty = 10,
             range = 90,
-            min_range = 20,
-            turn_range = 0.35,
+            min_range = 25,
+            turn_range = 0.3,
             sound = sounds.tank_gunshot
         },
         call_for_help_radius = 40,

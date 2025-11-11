@@ -16,8 +16,10 @@ require("prototypes.ammos.heavy_ammo")
 require("prototypes.ammos.illumination_ammo")
 require("prototypes.ammos.hypnosis_ammo")
 require("prototypes.ammos.shrapnel_ammo")
+require("prototypes.ammos.light_nuclear_ammo")
 -- other
 require("prototypes.misc")
+require("prototypes.technology")
 
 -- change to 360 angle turret
 if settings.startup[constants.name_prefix.."directional-turret-range"].value == false then

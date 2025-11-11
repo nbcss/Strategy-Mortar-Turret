@@ -1,13 +1,14 @@
 local constants = require("constants")
 local common = require("prototypes.common")
+local sounds = require("__base__.prototypes.entity.sounds")
 local source_offset = { 0, 0.25 }
-local ammo_name = "mortar-heavy-ammo"
-local projectile_stream_name = "mortar-heavy-projectile-stream"
-local cooldown_penalty = 5
+local ammo_name = "mortar-light-nuclear-ammo"
+local projectile_stream_name = "mortar-light-nuclear-projectile-stream"
+local cooldown_penalty = 10
 
-if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
-    return
-end
+-- if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
+--     return
+-- end
 
 data:extend {
     {
@@ -24,12 +25,12 @@ data:extend {
                 value = { "seconds", tostring(cooldown_penalty) },
             }
         },
-        ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = "mortar-bomb",
         ammo_type = {
             target_type = "position",
             clamp_position = true,
             range_modifier = 1.6,
-            cooldown_modifier = 2.0,
+            cooldown_modifier = 1 / 0.4,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -53,14 +54,14 @@ data:extend {
         type = "recipe",
         name = ammo_name,
         enabled = false,
-        energy_required = 8,
+        energy_required = 15,
         ingredients = {
-            {type = "item", name = "steel-plate", amount = 8},
-            {type = "item", name = "explosives", amount = 5},
-            {type = "item", name = "advanced-circuit", amount = 2}
+            { type = "item", name = "steel-plate", amount = 10 },
+            { type = "item", name = "explosives",  amount = 10 },
+            { type = "item", name = "uranium-235", amount = 20 }
         },
         results = {
-            {type = "item", name = ammo_name, amount = 1},
+            { type = "item", name = ammo_name, amount = 1 },
         }
     },
     {
@@ -71,50 +72,70 @@ data:extend {
         effects = {
             { type = "unlock-recipe", recipe = ammo_name },
         },
-        prerequisites = { "mortar-turret", "military-4" },
+        prerequisites = { "heavy-mortar-turret", "stronger-explosives-4", "kovarex-enrichment-process" },
         order = "xcb",
         unit = {
-            count = 200,
+            count = 400,
             ingredients = {
                 { "automation-science-pack", 1 },
                 { "logistic-science-pack",   1 },
                 { "military-science-pack",   1 },
                 { "chemical-science-pack",   1 },
                 { "utility-science-pack",    1 },
+                { "space-science-pack",      1 },
             },
             time = 30
         },
     },
-    common.create_mortar_stream{
+    common.create_mortar_stream {
         name = projectile_stream_name,
         particle = data.raw["artillery-projectile"]["artillery-projectile"].picture,
-        target_position_deviation = 0.5,
+        target_position_deviation = 1.0,
         action = {
             {
                 type = "direct",
                 action_delivery = {
                     type = "instant",
                     target_effects = {
-                        {
-                            type = "create-trivial-smoke",
-                            smoke_name = "artillery-smoke",
-                            initial_height = 0,
-                            speed_from_center = 0.05,
-                            speed_from_center_deviation = 0.005,
-                            offset_deviation = { { -4, -4 }, { 4, 4 } },
-                            max_radius = 3.5,
-                            repeat_count = 4 * 4 * 15
+                        { -- Destroy cliffs before changing tiles (so the cliff achievement works)
+                            type = "destroy-cliffs",
+                            radius = 10,
+                            explosion_at_trigger = "explosion"
                         },
                         {
                             type = "create-entity",
-                            entity_name = "big-artillery-explosion"
-                        }
+                            entity_name = "nuke-explosion"
+                        },
+                        {
+                            type = "play-sound",
+                            sound = sounds.nuclear_explosion(0.8),
+                            play_on_target_position = false,
+                            max_distance = 200,
+                        },
+                        {
+                            type = "create-entity",
+                            entity_name = "huge-scorchmark",
+                            offsets = { { 0, -0.5 } },
+                            check_buildability = true
+                        },
+                        {
+                            type = "invoke-tile-trigger",
+                            repeat_count = 1
+                        },
+                        {
+                            type = "destroy-decoratives",
+                            include_soft_decoratives = true, -- soft decoratives are decoratives with grows_through_rail_path = true
+                            include_decals = true,
+                            invoke_decorative_trigger = true,
+                            decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
+                            radius = 8                             -- large radius for demostrative purposes
+                        },
                     }
                 }
             },
             {
                 type = "area",
-                radius = 1.5,
+                radius = 3,
                 force = "enemy",
                 action_delivery = {
                     {
@@ -122,7 +143,8 @@ data:extend {
                         target_effects = {
                             {
                                 type = "damage",
-                                damage = { type = "physical", amount = 250 },
+                                vaporize = true,
+                                damage = { type = "explosion", amount = 1000 },
                             }
                         }
                     }
@@ -130,7 +152,7 @@ data:extend {
             },
             {
                 type = "area",
-                radius = 4,
+                radius = 10,
                 force = "enemy",
                 action_delivery = {
                     {
@@ -138,7 +160,7 @@ data:extend {
                         target_effects = {
                             {
                                 type = "damage",
-                                damage = { type = "explosion", amount = 50 },
+                                damage = { type = "explosion", amount = 300 },
                             }
                         }
                     }

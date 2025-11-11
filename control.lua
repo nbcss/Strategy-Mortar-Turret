@@ -46,7 +46,7 @@ script.on_event(defines.events.on_script_trigger_effect, function(event)
             bonus_damage_control.apply("illumination", modifier, event.cause_entity, event.source_entity, event.target_entity)
         end
     elseif util.string_starts_with(event.effect_id, 'mortar-turret-cooldown-') then
-        if not event.cause_entity or event.cause_entity.name ~= "mortar-turret" then return end
+        if not event.cause_entity or event.cause_entity.type ~= "ammo-turret" then return end
         local cooldown = tonumber(string.sub(event.effect_id, 1 + #'mortar-turret-cooldown-'))
         cooldown_control.apply(cooldown * 60, event.cause_entity)
     end

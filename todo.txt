@@ -6,7 +6,7 @@ landmine shell: deploy landmine
 repair shell: repair friendly structure
 
 extra
-heavy mortar turret (longer range, improved damage bonus, reduced shooting speed)
+> heavy mortar turret (longer range, improved damage bonus, reduced shooting speed)
 swap turret mode (friendly target?)
 manual override cooldown
 manual targeting

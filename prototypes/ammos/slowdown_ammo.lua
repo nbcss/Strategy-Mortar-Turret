@@ -3,6 +3,7 @@ local common = require("prototypes.common")
 local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-slowdown-ammo"
 local projectile_stream_name = "mortar-slowdown-projectile-stream"
+local cooldown_penalty = 10
 
 if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
     return
@@ -20,7 +21,7 @@ data:extend {
         custom_tooltip_fields = {
             {
                 name = { "strategy-mortar-turret.turret-cooldown-penalty" },
-                value = { "seconds", tostring(10) },
+                value = { "seconds", tostring(cooldown_penalty) },
             }
         },
         ammo_category = constants.mortar_strategy_ammo_category,
@@ -41,7 +42,7 @@ data:extend {
                         type = "instant",
                         source_effects = {
                             type = "script",
-                            effect_id = "mortar-turret-cooldown-10"
+                            effect_id = "mortar-turret-cooldown-" .. cooldown_penalty
                         }
                     }
                 }
