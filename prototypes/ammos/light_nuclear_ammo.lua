@@ -29,7 +29,7 @@ data:extend {
         ammo_type = {
             target_type = "position",
             clamp_position = true,
-            range_modifier = 1.6,
+            range_modifier = 1.0,
             cooldown_modifier = 1 / 0.4,
             action = {
                 type = "direct",
