@@ -15,7 +15,7 @@ data:extend {
         type = "ammo",
         name = ammo_name,
         order = "cb",
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-heavy-ammo.png",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-light-nuclear-ammo.png",
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
@@ -67,7 +67,7 @@ data:extend {
     {
         type = "technology",
         name = ammo_name,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-heavy-ammo.png",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-light-nuclear-ammo.png",
         icon_size = 64,
         effects = {
             { type = "unlock-recipe", recipe = ammo_name },
