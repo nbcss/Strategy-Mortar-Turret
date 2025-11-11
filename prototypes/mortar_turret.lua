@@ -6,7 +6,7 @@ data:extend{
     {
         type = "item",
         name = "mortar-turret",
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret-icon.png",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret.png",
         icon_size = 64,
         subgroup = "turret",
         order = "b[turret]-a[gun-turret]-a",
@@ -32,7 +32,7 @@ data:extend{
         type = "technology",
         name = "mortar-turret",
         icon_size = 256,
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret.png",
+        icon = "__strategy-mortar-turret__/graphics/technology/mortar-turret.png",
         effects = {
             { type = "unlock-recipe", recipe = "mortar-turret" },
             { type = "unlock-recipe", recipe = "mortar-bomb" },
@@ -52,7 +52,7 @@ data:extend{
     {
         type = "ammo-turret",
         name = "mortar-turret",
-        icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret-icon.png",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret.png",
         icon_size = 64,
         flags = { "placeable-player", "player-creation" },
         minable = { mining_time = 0.5, result = "mortar-turret" },
