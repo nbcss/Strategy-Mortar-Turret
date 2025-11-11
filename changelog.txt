@@ -1,9 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
-Date: 06. 11. 2025
+Date: 11. 11. 2025
   Features:
     - Added Heavy mortar turret, a 3x3 variant mortar turret with very long range and direct damage bonus, but has even lower shooting speed (15s -> 6s).
-    - Added Light nuclear bomb, which can deal massive explosive damage without shock wave (but still could damage friendly structure).
+    - Added Light nuclear bomb, which can deal massive explosion damage without shock wave.
   Changes:
     - Added Engine technology to mortar turret prerequisites.
     - Increase the research price of heavy shell, but reduced it's turret penalty time.

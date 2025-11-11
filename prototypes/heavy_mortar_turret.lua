@@ -9,7 +9,7 @@ data:extend {
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret-icon.png",
         icon_size = 64,
         subgroup = "turret",
-        order = "b[turret]-a[gun-turret]",
+        order = "b[turret]-a[gun-turret]-b",
         place_result = "heavy-mortar-turret",
         stack_size = 5,
     },
@@ -17,7 +17,6 @@ data:extend {
         type = "recipe",
         name = "heavy-mortar-turret",
         subgroup = "turret",
-        order = "b-b",
         enabled = false,
         energy_required = 30,
         ingredients = {

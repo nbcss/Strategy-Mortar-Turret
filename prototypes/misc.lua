@@ -7,7 +7,7 @@ data.extend {
         name = constants.mortar_strategy_ammo_category,
         icon = "__aai-vehicles-ironclad__/graphics/icons/mortar-bomb-ammo-category.png",
         subgroup = "ammo-category",
-        bonus_gui_order = "z",
+        bonus_gui_order = "sma-a",
     },
     {
         type = "item-subgroup",

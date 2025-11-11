@@ -58,7 +58,7 @@ data:extend {
         ingredients = {
             { type = "item", name = "steel-plate", amount = 10 },
             { type = "item", name = "explosives",  amount = 10 },
-            { type = "item", name = "uranium-235", amount = 20 }
+            { type = "item", name = "uranium-235", amount = 20 },
         },
         results = {
             { type = "item", name = ammo_name, amount = 1 },
@@ -99,7 +99,7 @@ data:extend {
                     target_effects = {
                         { -- Destroy cliffs before changing tiles (so the cliff achievement works)
                             type = "destroy-cliffs",
-                            radius = 10,
+                            radius = 6,
                             explosion_at_trigger = "explosion"
                         },
                         {
@@ -130,13 +130,31 @@ data:extend {
                             decoratives_with_trigger_only = false, -- if true, destroys only decoratives that have trigger_effect set
                             radius = 8                             -- large radius for demostrative purposes
                         },
+                        -- {
+                        --     type = "nested-result",
+                        --     action =
+                        --     {
+                        --         type = "area",
+                        --         target_entities = false,
+                        --         trigger_from_target = true,
+                        --         repeat_count = 1000,
+                        --         radius = 7,
+                        --         action_delivery =
+                        --         {
+                        --             type = "projectile",
+                        --             projectile = "atomic-bomb-ground-zero-projectile",
+                        --             starting_speed = 0.6 * 0.8,
+                        --             starting_speed_deviation = 0.075,
+                        --         }
+                        --     }
+                        -- },
                     }
                 }
             },
             {
                 type = "area",
                 radius = 3,
-                force = "enemy",
+                -- force = "enemy",
                 action_delivery = {
                     {
                         type = "instant",
@@ -152,15 +170,31 @@ data:extend {
             },
             {
                 type = "area",
-                radius = 10,
-                force = "enemy",
+                radius = 6,
+                -- force = "enemy",
                 action_delivery = {
                     {
                         type = "instant",
                         target_effects = {
                             {
                                 type = "damage",
-                                damage = { type = "explosion", amount = 300 },
+                                damage = { type = "explosion", amount = 250 },
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                type = "area",
+                radius = 9,
+                -- force = "enemy",
+                action_delivery = {
+                    {
+                        type = "instant",
+                        target_effects = {
+                            {
+                                type = "damage",
+                                damage = { type = "explosion", amount = 100 },
                             }
                         }
                     }

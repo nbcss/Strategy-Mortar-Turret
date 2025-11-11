@@ -9,7 +9,7 @@ data:extend{
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret-icon.png",
         icon_size = 64,
         subgroup = "turret",
-        order = "b[turret]-a[gun-turret]",
+        order = "b[turret]-a[gun-turret]-a",
         place_result = "mortar-turret",
         stack_size = 20
     },
@@ -17,7 +17,6 @@ data:extend{
         type = "recipe",
         name = "mortar-turret",
         subgroup = "turret",
-        order = "b[turret]-a[gun-turret]",
         enabled = false,
         energy_required = 10,
         ingredients = {
@@ -151,7 +150,7 @@ data:extend{
         attack_parameters = {
             type = "projectile",
             ammo_categories = {constants.mortar_strategy_ammo_category, "mortar-bomb"},
-            -- lead_target_for_projectile_speed = 0.05,
+            -- lead_target_for_projectile_speed = 0.4,
             cooldown = 10 * 60,
             movement_slow_down_factor = 0,
             projectile_creation_distance = 0.5,
