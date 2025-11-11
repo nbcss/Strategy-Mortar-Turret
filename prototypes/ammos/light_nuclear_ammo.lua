@@ -6,9 +6,9 @@ local ammo_name = "mortar-light-nuclear-ammo"
 local projectile_stream_name = "mortar-light-nuclear-projectile-stream"
 local cooldown_penalty = 10
 
--- if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
---     return
--- end
+if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
+    return
+end
 
 data:extend {
     {
