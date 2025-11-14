@@ -75,7 +75,7 @@ data:extend {
         prerequisites = { "heavy-mortar-turret", "stronger-explosives-4", "kovarex-enrichment-process" },
         order = "xcb",
         unit = {
-            count = 400,
+            count = 500,
             ingredients = {
                 { "automation-science-pack", 1 },
                 { "logistic-science-pack",   1 },

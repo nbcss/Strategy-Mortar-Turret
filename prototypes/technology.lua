@@ -46,7 +46,7 @@ data:extend{
         icons = util.technology_icon_constant_damage("__strategy-mortar-turret__/graphics/technology/mortar-turret.png"),
         effects = {
             {type = "turret-attack", turret_id = "mortar-turret", modifier = 0.2},
-            {type = "turret-attack", turret_id = "heavy-mortar-turret", modifier = 0.3},
+            {type = "turret-attack", turret_id = "heavy-mortar-turret", modifier = 0.2},
         },
         prerequisites = { "utility-science-pack", "mortar-turret-damage-2" },
         upgrade = true,
@@ -69,7 +69,7 @@ data:extend{
         icons = util.technology_icon_constant_damage("__strategy-mortar-turret__/graphics/technology/mortar-turret.png"),
         effects = {
             {type = "turret-attack", turret_id = "mortar-turret", modifier = 0.2},
-            {type = "turret-attack", turret_id = "heavy-mortar-turret", modifier = 0.4},
+            {type = "turret-attack", turret_id = "heavy-mortar-turret", modifier = 0.2},
         },
         prerequisites = { "space-science-pack", "mortar-turret-damage-3" },
         max_level = "infinite",

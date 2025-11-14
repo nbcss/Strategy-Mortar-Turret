@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
-Date: 11. 11. 2025
+Date: 11. 14. 2025
   Features:
     - Added Heavy mortar turret, a 3x3 variant mortar turret with very long range and direct damage bonus, but has even lower shooting speed (15s -> 6s).
     - Added Light nuclear bomb, which can deal massive explosion damage without shock wave.
@@ -12,6 +12,7 @@ Date: 11. 11. 2025
     - Fixed shrapnel explosion sound was played at turret position
     - Fixed mortar turret was missing hit effect
     - Fixed heavy shell has longer turret cooldown penalty than expected
+    - Fixed distractor shell has incorrect item description
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.2
 Date: 06. 11. 2025
