@@ -14,7 +14,7 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "cb",
+        order = "ac",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-light-nuclear-ammo.png",
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
