@@ -40,3 +40,16 @@ mortar_bomb_ammo_item.order = "aa"
 local mortar_cluster_bomb_ammo_item = data.raw["ammo"]["mortar-cluster-bomb"]
 mortar_cluster_bomb_ammo_item.subgroup = constants.mortar_ammo_subgroup
 mortar_cluster_bomb_ammo_item.order = "ab"
+
+-- Ago of Production dependency
+if mods["Age-of-Production"] then
+    -- AAI base mortar bombs update
+    data.raw["recipe"]["mortar-bomb"].additional_categories = { "ammunition" }
+    data.raw["recipe"]["mortar-cluster-bomb"].additional_categories = { "ammunition" }
+    -- strategy ammos update
+    for _, ammo_name in ipairs(constants.ammo_types) do
+        if data.raw["recipe"][ammo_name] then
+            data.raw["recipe"][ammo_name].additional_categories = { "ammunition" }
+        end
+    end
+end

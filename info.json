@@ -1,12 +1,13 @@
 {
     "name": "strategy-mortar-turret",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "title": "Strategy Mortar Turret",
     "author": "nbcss, FiveYellowMice",
     "factorio_version": "2.0",
 	"dependencies": [ 
         "aai-vehicles-ironclad",
-        "? ironclad-gunboat-and-mortar-turret-fork"
+        "? ironclad-gunboat-and-mortar-turret-fork",
+        "? Age-of-Production"
 	],
     "description": "Mortar turret can equip diverse strategy ammos to enhance defense usage, such as robot capsule and artillery-like shells."
 }
