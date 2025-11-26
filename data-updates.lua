@@ -14,8 +14,14 @@ for level = 1, 7 do
     end)
 end
 
--- bonus technologies
-tech.add_effect("weapon-shooting-speed-3", {type = "gun-speed", ammo_category = constants.mortar_strategy_ammo_category, modifier = 0.2})
-tech.add_effect("weapon-shooting-speed-4", {type = "gun-speed", ammo_category = constants.mortar_strategy_ammo_category, modifier = 0.3})
-tech.add_effect("weapon-shooting-speed-5", {type = "gun-speed", ammo_category = constants.mortar_strategy_ammo_category, modifier = 0.4})
-tech.add_effect("weapon-shooting-speed-6", {type = "gun-speed", ammo_category = constants.mortar_strategy_ammo_category, modifier = 0.6})
+-- shoot speed bonus technology effect
+tech.add_effect("weapon-shooting-speed-3", {type = "gun-speed", ammo_category = constants.strategy_mortar_ammo_category, modifier = 0.2})
+tech.add_effect("weapon-shooting-speed-4", {type = "gun-speed", ammo_category = constants.strategy_mortar_ammo_category, modifier = 0.3})
+tech.add_effect("weapon-shooting-speed-5", {type = "gun-speed", ammo_category = constants.strategy_mortar_ammo_category, modifier = 0.4})
+tech.add_effect("weapon-shooting-speed-6", {type = "gun-speed", ammo_category = constants.strategy_mortar_ammo_category, modifier = 0.6})
+-- physical damage bonus technology effect
+tech.add_effect("physical-projectile-damage-3", {type = "ammo-damage", ammo_category = constants.physical_mortar_ammo_category, modifier = 0.1})
+tech.add_effect("physical-projectile-damage-4", {type = "ammo-damage", ammo_category = constants.physical_mortar_ammo_category, modifier = 0.1})
+tech.add_effect("physical-projectile-damage-5", {type = "ammo-damage", ammo_category = constants.physical_mortar_ammo_category, modifier = 0.2})
+tech.add_effect("physical-projectile-damage-6", {type = "ammo-damage", ammo_category = constants.physical_mortar_ammo_category, modifier = 0.3})
+tech.add_effect("physical-projectile-damage-7", {type = "ammo-damage", ammo_category = constants.physical_mortar_ammo_category, modifier = 0.4})

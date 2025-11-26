@@ -1,6 +1,6 @@
 local hypnosis_control = {}
 
-hypnosis_control.max_chance = 0.15
+hypnosis_control.max_chance = 0.25
 hypnosis_control.hypnosis_time = 30 -- in seconds
 
 function hypnosis_control.apply_effect(cause_entity, source_entity, target_entity)

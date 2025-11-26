@@ -1,7 +1,7 @@
 new ammos
 hunter robot shell: improved robots which actively hunt down enemy nearby
-slowdown cloud shell: produced a slowdown cloud and slowdown enemy inside
-paralysis shell: completely disable movement of targets
+slowdown cloud shell: produced a slowdown cloud and slowdown enemy inside, also produce poison damage
+paralysis shell: completely disable movement of targets, also able to fork?
 landmine shell: deploy landmine
 repair shell: repair friendly structure
 
@@ -10,7 +10,7 @@ swap turret mode (friendly target?)
 manual override cooldown
 manual targeting
 graphics upgrade
-more sub-category for ammos, also technology can improve individual ammo category?
+> more sub-category for ammos, also technology can improve individual ammo category?
 integrate with other mods / SA
 compatibility fix for turret delay
 

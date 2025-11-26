@@ -4,10 +4,18 @@ local common = require("prototypes.common")
 data.extend {
     {
         type = "ammo-category",
-        name = constants.mortar_strategy_ammo_category,
+        name = constants.strategy_mortar_ammo_category,
         icon = "__aai-vehicles-ironclad__/graphics/icons/mortar-bomb-ammo-category.png",
         subgroup = "ammo-category",
         bonus_gui_order = "sma-a",
+    },
+    {
+        type = "ammo-category",
+        name = constants.physical_mortar_ammo_category,
+        icon = "__aai-vehicles-ironclad__/graphics/icons/mortar-bomb-ammo-category.png",
+        subgroup = "ammo-category",
+        bonus_gui_order = "sma-b",
+        -- hidden_in_factoriopedia = true,
     },
     {
         type = "item-subgroup",

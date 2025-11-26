@@ -14,7 +14,7 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "ba",
+        order = "da",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-poison-ammo.png",
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
@@ -25,7 +25,7 @@ data:extend {
                 value = { "seconds", tostring(poison_duration) },
             }
         },
-        ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.strategy_mortar_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,

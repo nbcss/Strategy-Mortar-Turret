@@ -12,7 +12,7 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "bd",
+        order = "dd",
         icons = {
             {
                 icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo-base.png",
@@ -39,7 +39,7 @@ data:extend {
                 value = { "seconds", tostring(30) },
             }
         },
-        ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.strategy_mortar_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,

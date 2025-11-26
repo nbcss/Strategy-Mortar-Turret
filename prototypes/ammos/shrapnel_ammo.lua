@@ -14,12 +14,12 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "ad",
+        order = "ba",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-shrapnel-ammo.png",
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
-        ammo_category = "mortar-bomb",
+        ammo_category = constants.physical_mortar_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,

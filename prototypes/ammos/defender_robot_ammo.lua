@@ -12,12 +12,12 @@ data:extend {
     {
         type = "ammo",
         name = ammo_name,
-        order = "da",
+        order = "ea",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-defender-ammo.png",
         icon_size = 64,
         subgroup = constants.mortar_ammo_subgroup,
         stack_size = 200,
-        ammo_category = constants.mortar_strategy_ammo_category,
+        ammo_category = constants.strategy_mortar_ammo_category,
         ammo_type = {
             target_type = "position",
             clamp_position = true,
