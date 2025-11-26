@@ -5,8 +5,10 @@ Date: 26. 11. 2025
     - Added 8-way direction for mortar turret and heavy mortar turret.
     - Added optional Age of Production support to produce ammo in Armoury.
     - Added physical mortar shell ammo category which receive projectile technology damage bonus.
+    - Added electric mortar shell ammo category which receive electric/laser technology damage bonus.
   Changes:
     - Hyponosis max transform chance increased to 25%.
+    - Reduced Heavy mortar turret health to 1200.
     - Shrapenl ammo changed to physical mortar shell ammo category, also updated name.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0

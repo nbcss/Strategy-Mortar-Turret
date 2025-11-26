@@ -6,6 +6,7 @@
     "factorio_version": "2.0",
 	"dependencies": [ 
         "aai-vehicles-ironclad",
+        "? space-age",
         "? ironclad-gunboat-and-mortar-turret-fork",
         "? Age-of-Production"
 	],

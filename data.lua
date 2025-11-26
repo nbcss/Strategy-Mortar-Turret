@@ -30,7 +30,11 @@ end
 -- update ironclad turret to use strategy ammo
 local ironclad_mortar_turret = data.raw["gun"]["ironclad-mortar"]
 ironclad_mortar_turret.attack_parameters.ammo_category = nil
-ironclad_mortar_turret.attack_parameters.ammo_categories = {"mortar-bomb", constants.strategy_mortar_ammo_category, constants.physical_mortar_ammo_category}
+ironclad_mortar_turret.attack_parameters.ammo_categories = {"mortar-bomb",
+    constants.strategy_mortar_ammo_category,
+    constants.physical_mortar_ammo_category,
+    constants.electric_mortar_ammo_category,
+}
 
 -- rearrange item group
 local mortar_bomb_ammo_item = data.raw["ammo"]["mortar-bomb"]

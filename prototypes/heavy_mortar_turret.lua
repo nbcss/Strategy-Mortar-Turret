@@ -58,7 +58,7 @@ data:extend {
         icon_size = 64,
         flags = { "placeable-player", "player-creation", "building-direction-8-way" },
         minable = { mining_time = 1.0, result = "heavy-mortar-turret" },
-        max_health = 1600,
+        max_health = 1200,
         corpse = "medium-remnants",
         dying_explosion = "gun-turret-explosion",
         collision_box = { { -1.05, -1.05 }, { 1.05, 1.05 } },
@@ -157,7 +157,7 @@ data:extend {
         vehicle_impact_sound = sounds.generic_impact,
         attack_parameters = {
             type = "projectile",
-            ammo_categories = { constants.strategy_mortar_ammo_category, constants.physical_mortar_ammo_category, "mortar-bomb" },
+            ammo_categories = { constants.strategy_mortar_ammo_category, constants.physical_mortar_ammo_category, constants.electric_mortar_ammo_category, "mortar-bomb" },
             damage_modifier = 1.6,
             lead_target_for_projectile_speed = 0.4,
             cooldown = 15 * 60,

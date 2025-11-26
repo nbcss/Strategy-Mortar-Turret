@@ -18,6 +18,14 @@ data.extend {
         -- hidden_in_factoriopedia = true,
     },
     {
+        type = "ammo-category",
+        name = constants.electric_mortar_ammo_category,
+        icon = "__aai-vehicles-ironclad__/graphics/icons/mortar-bomb-ammo-category.png",
+        subgroup = "ammo-category",
+        bonus_gui_order = "sma-c",
+        -- hidden_in_factoriopedia = true,
+    },
+    {
         type = "item-subgroup",
         name = constants.mortar_ammo_subgroup,
         group = "combat",

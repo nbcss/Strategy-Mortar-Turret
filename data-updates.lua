@@ -25,3 +25,15 @@ tech.add_effect("physical-projectile-damage-4", {type = "ammo-damage", ammo_cate
 tech.add_effect("physical-projectile-damage-5", {type = "ammo-damage", ammo_category = constants.physical_mortar_ammo_category, modifier = 0.2})
 tech.add_effect("physical-projectile-damage-6", {type = "ammo-damage", ammo_category = constants.physical_mortar_ammo_category, modifier = 0.3})
 tech.add_effect("physical-projectile-damage-7", {type = "ammo-damage", ammo_category = constants.physical_mortar_ammo_category, modifier = 0.4})
+-- electric damage bonus technology effect
+if mods["space-age"] then
+    tech.add_effect("electric-weapons-damage-1", {type = "ammo-damage", ammo_category = constants.electric_mortar_ammo_category, modifier = 0.1})
+    tech.add_effect("electric-weapons-damage-2", {type = "ammo-damage", ammo_category = constants.electric_mortar_ammo_category, modifier = 0.2})
+    tech.add_effect("electric-weapons-damage-3", {type = "ammo-damage", ammo_category = constants.electric_mortar_ammo_category, modifier = 0.4})
+    tech.add_effect("electric-weapons-damage-4", {type = "ammo-damage", ammo_category = constants.electric_mortar_ammo_category, modifier = 0.5})
+else
+    tech.add_effect("laser-weapons-damage-4", {type = "ammo-damage", ammo_category = constants.electric_mortar_ammo_category, modifier = 0.1})
+    tech.add_effect("laser-weapons-damage-5", {type = "ammo-damage", ammo_category = constants.electric_mortar_ammo_category, modifier = 0.2})
+    tech.add_effect("laser-weapons-damage-6", {type = "ammo-damage", ammo_category = constants.electric_mortar_ammo_category, modifier = 0.4})
+    tech.add_effect("laser-weapons-damage-7", {type = "ammo-damage", ammo_category = constants.electric_mortar_ammo_category, modifier = 0.5})
+end
