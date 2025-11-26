@@ -56,12 +56,12 @@ data:extend {
         name = "heavy-mortar-turret",
         icon = "__strategy-mortar-turret__/graphics/icons/heavy-mortar-turret.png",
         icon_size = 64,
-        flags = { "placeable-player", "player-creation" },
+        flags = { "placeable-player", "player-creation", "building-direction-8-way" },
         minable = { mining_time = 1.0, result = "heavy-mortar-turret" },
         max_health = 1600,
         corpse = "medium-remnants",
         dying_explosion = "gun-turret-explosion",
-        collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
+        collision_box = { { -1.05, -1.05 }, { 1.05, 1.05 } },
         selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
         damaged_trigger_effect = hit_effects.entity(),
         rotation_speed = 0.1 / 60,
@@ -192,7 +192,22 @@ data:extend {
                 { variation = 17, main_offset = util.by_pixel( -18, 13), shadow_offset = util.by_pixel( -12, 25), show_shadow = false },
                 { variation = 17, main_offset = util.by_pixel( -18, 13), shadow_offset = util.by_pixel( -12, 25), show_shadow = false },
                 { variation = 17, main_offset = util.by_pixel( -18, 13), shadow_offset = util.by_pixel( -12, 25), show_shadow = false },
+                { variation = 17, main_offset = util.by_pixel( -18, 13), shadow_offset = util.by_pixel( -12, 25), show_shadow = false },
+                { variation = 17, main_offset = util.by_pixel( -18, 13), shadow_offset = util.by_pixel( -12, 25), show_shadow = false },
+                { variation = 17, main_offset = util.by_pixel( -18, 13), shadow_offset = util.by_pixel( -12, 25), show_shadow = false },
+                { variation = 17, main_offset = util.by_pixel( -18, 13), shadow_offset = util.by_pixel( -12, 25), show_shadow = false },
             }
         ),
     },
+}
+data.extend{
+    util.merge{data.raw["ammo-turret"]["heavy-mortar-turret"], {
+        name = "tilted-heavy-mortar-turret",
+        localised_name = {"entity-name.heavy-mortar-turret"},
+        localised_description = {"entity-description.heavy-mortar-turret"},
+        collision_box = { { -1.05, -1.05 }, { 1.05, 1.05 }, 0.125 },
+        selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 }, 0.125 },
+        placeable_by = {item = "heavy-mortar-turret", count = 1},
+        hidden = true,
+    }},
 }

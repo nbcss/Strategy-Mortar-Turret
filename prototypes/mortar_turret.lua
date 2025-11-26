@@ -54,7 +54,7 @@ data:extend{
         name = "mortar-turret",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-turret.png",
         icon_size = 64,
-        flags = { "placeable-player", "player-creation" },
+        flags = { "placeable-player", "player-creation", "building-direction-8-way" },
         minable = { mining_time = 0.5, result = "mortar-turret" },
         max_health = 400,
         corpse = "gun-turret-remnants",
@@ -183,7 +183,22 @@ data:extend{
                 { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
                 { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
                 { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
             }
         ),
     },
+}
+data.extend{
+    util.merge{data.raw["ammo-turret"]["mortar-turret"], {
+        name = "tilted-mortar-turret",
+        localised_name = {"entity-name.mortar-turret"},
+        localised_description = {"entity-description.mortar-turret"},
+        collision_box = { { -0.7, -0.7 }, { 0.7, 0.7 }, 0.125 },
+        selection_box = { { -1, -1 }, { 1, 1 }, 0.125 },
+        placeable_by = {item = "mortar-turret", count = 1},
+        hidden = true,
+    }},
 }

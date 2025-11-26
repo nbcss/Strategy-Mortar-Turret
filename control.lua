@@ -20,10 +20,54 @@ script.on_nth_tick(30 * 60, function(_)
     robot_control.update()
 end)
 
-script.on_event(defines.events.on_tick, function (event)
+script.on_event(defines.events.on_tick, function(event)
     bonus_damage_control.on_tick(event)
     cooldown_control.on_tick(event)
 end)
+
+-- replace turret with tilted version to ensure correct hitbox
+local replace_tilted_turret = function(event)
+    if event.entity.direction == defines.direction.north or event.entity.direction == defines.direction.east or
+        event.entity.direction == defines.direction.south or event.entity.direction == defines.direction.west then
+        return
+    end
+    if event.entity.name == "mortar-turret" then
+        local tilted_turret = event.entity.surface.create_entity {
+            name = "tilted-mortar-turret",
+            position = event.entity.position,
+            direction = event.entity.direction,
+            quality = event.entity.quality,
+            force = event.entity.force,
+            player = event.entity.last_user,
+            raise_built = false,
+            create_build_effect_smoke = false,
+        }
+        tilted_turret.copy_settings(event.entity)
+        event.entity.destroy()
+    elseif event.entity.name == "heavy-mortar-turret" then
+        local tilted_turret = event.entity.surface.create_entity {
+            name = "tilted-heavy-mortar-turret",
+            position = event.entity.position,
+            direction = event.entity.direction,
+            quality = event.entity.quality,
+            force = event.entity.force,
+            player = event.entity.last_user,
+            raise_built = false,
+            create_build_effect_smoke = false,
+        }
+        tilted_turret.copy_settings(event.entity)
+        event.entity.destroy()
+    end
+end
+
+script.on_event(defines.events.on_built_entity, replace_tilted_turret,
+    { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
+script.on_event(defines.events.on_robot_built_entity, replace_tilted_turret,
+    { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
+script.on_event(defines.events.script_raised_built, replace_tilted_turret,
+    { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
+script.on_event(defines.events.on_space_platform_built_entity, replace_tilted_turret,
+    { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
 
 script.on_event(defines.events.on_script_trigger_effect, function(event)
     if event.effect_id == 'mortar-turret-robot-shoot' then
@@ -43,7 +87,8 @@ script.on_event(defines.events.on_script_trigger_effect, function(event)
         if event.target_entity and event.target_entity.valid then
             -- deal additional damage in dark environment (10% to 30% of original damage)
             local modifier = 0.1 + event.target_entity.surface.darkness * 0.2
-            bonus_damage_control.apply("illumination", modifier, event.cause_entity, event.source_entity, event.target_entity)
+            bonus_damage_control.apply("illumination", modifier, event.cause_entity, event.source_entity,
+                event.target_entity)
         end
     elseif util.string_starts_with(event.effect_id, 'mortar-turret-cooldown-') then
         if not event.cause_entity or event.cause_entity.type ~= "ammo-turret" then return end
@@ -59,8 +104,9 @@ script.on_event(defines.events.on_object_destroyed, function(event)
 end)
 
 script.on_event(defines.events.on_entity_cloned, function(event)
-    cooldown_control.on_entity_cloned(event)
-end,
-{
-    {filter = "name", name = "mortar-turret"}
-})
+        cooldown_control.on_entity_cloned(event)
+    end,
+    {
+        { filter = "name", name = "mortar-turret" },
+        { filter = "name", name = "heavy-mortar-turret" },
+    })

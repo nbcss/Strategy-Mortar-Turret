@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 26. 11. 2025
+  Features:
+    - Added 8-way direction for mortar turret and heavy mortar turret.
+    - Added optional Age of Production support to produce ammo in Armoury.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 14. 11. 2025
   Features:
