@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.1
-Date: 26. 11. 2025
+Date: 29. 11. 2025
   Features:
     - Added 8-way direction for mortar turret and heavy mortar turret.
     - Added optional Age of Production support to produce ammo in Armoury.
@@ -10,6 +10,7 @@ Date: 26. 11. 2025
     - Hyponosis max transform chance increased to 25%.
     - Reduced Heavy mortar turret health to 1200.
     - Shrapenl ammo changed to physical mortar shell ammo category, also updated name.
+    - Reduced all mortar ammo stack size to 25, can be reverted to 200 in the startup setting.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 14. 11. 2025

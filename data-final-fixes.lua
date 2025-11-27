@@ -75,3 +75,13 @@ if settings.startup[constants.name_prefix .. "remove-aai-ironclad"].value == tru
         tech.remove_prerequisite(technology, "ironclad")
     end
 end
+
+if settings.startup[constants.name_prefix .. "reduce-mortar-ammo-stack-size"].value == true then
+    data.raw["ammo"]["mortar-bomb"].stack_size = 25
+    data.raw["ammo"]["mortar-cluster-bomb"].stack_size = 25
+    for _, ammo_name in ipairs(constants.ammo_types) do
+        if data.raw["ammo"][ammo_name] then
+            data.raw["ammo"][ammo_name].stack_size = 25
+        end
+    end
+end

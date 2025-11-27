@@ -156,3 +156,6 @@ data.raw["stream"][projectile_stream_name].particle.tint = tint_color
 if settings.startup[constants.name_prefix .. "enable-ammo-mortar-poison-bomb"].value == true then
     tech.add_prerequisite(ammo_name, "mortar-poison-bomb")
 end
+if mods["space-age"] then
+    -- todo update recipe & tech
+end
