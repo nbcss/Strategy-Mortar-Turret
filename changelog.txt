@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.2.1
-Date: 29. 11. 2025
+Version: 1.3.0
+Date: 28. 11. 2025
   Features:
     - Added 8-way direction for mortar turret and heavy mortar turret.
     - Added optional Age of Production support to produce ammo in Armoury.
@@ -12,8 +12,11 @@ Date: 29. 11. 2025
     - Illumination shell damage bonus during day decrease to +5%, shooting speed modifier decrease to 60%.
     - Fire shell been reworked to improve it's performance, but reduced it's shooting speed modifier to 75%.
     - Reduced Heavy mortar turret health to 1200.
+    - Increased infinite technology damage bonus for Heavy mortar turret (20% -> 30% per level).
     - Shrapenl ammo changed to physical mortar shell ammo category, also updated name.
     - Reduced all mortar ammo stack size to 25, can be reverted to 200 in the startup setting.
+  Bugfixes:
+    - Fixed Light nuclear bomb technology was using space science pack when SpaceAge is not enabled.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 14. 11. 2025

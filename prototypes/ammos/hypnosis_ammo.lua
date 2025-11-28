@@ -165,13 +165,13 @@ if settings.startup[constants.name_prefix .. "enable-ammo-mortar-poison-bomb"].v
     tech.add_prerequisite(ammo_name, "mortar-poison-bomb")
 end
 -- add bonus tech effects
-for level = 1, 4 do
-    tech.add_effect("strategy-mortar-shell-efficiency-" .. level, {
+for level = 3, 4 do
+    tech.add_effect("mortar-turret-damage-" .. level, {
         type = "ammo-damage",
         ammo_category = "mortar-hypnosis-effect",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-hypnosis-ammo.png",
         icon_size = 64,
-        modifier = 0.2 + 0.2 * level,
+        modifier = -1.0 + 0.5 * level,
     })
 end
 if mods["space-age"] then

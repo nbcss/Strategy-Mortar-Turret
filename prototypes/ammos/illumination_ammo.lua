@@ -247,7 +247,7 @@ data:extend {
 
 -- add bonus tech effects
 for level = 1, 4 do
-    tech.add_effect("strategy-mortar-shell-efficiency-" .. level, {
+    tech.add_effect("mortar-turret-damage-" .. level, {
         type = "ammo-damage",
         ammo_category = "mortar-illumination-effect",
         icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo.png",
