@@ -1,7 +1,8 @@
 local robot_control = require("script.robot_control")
 local cooldown_control = require("script.cooldown_control")
-local bonus_damage_control = require("script.bonus_damage_control")
 local hypnosis_control = require("script.hypnosis_control")
+local illumination_control = require("script.illumination_control")
+local bonus_damage_control = require("script.bonus_damage_control")
 local util = require("util")
 
 script.on_init(function()
@@ -84,12 +85,7 @@ script.on_event(defines.events.on_script_trigger_effect, function(event)
             event.target_entity.die()
         end
     elseif event.effect_id == 'mortar-turret-illumination-damage' then
-        if event.target_entity and event.target_entity.valid then
-            -- deal additional damage in dark environment (10% to 30% of original damage)
-            local modifier = 0.1 + event.target_entity.surface.darkness * 0.2
-            bonus_damage_control.apply("illumination", modifier, event.cause_entity, event.source_entity,
-                event.target_entity)
-        end
+        illumination_control.update_entity_damage(event.cause_entity, event.source_entity, event.target_entity)
     elseif util.string_starts_with(event.effect_id, 'mortar-turret-cooldown-') then
         if not event.cause_entity or event.cause_entity.type ~= "ammo-turret" then return end
         local cooldown = tonumber(string.sub(event.effect_id, 1 + #'mortar-turret-cooldown-'))

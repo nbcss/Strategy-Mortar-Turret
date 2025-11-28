@@ -149,12 +149,30 @@ data:extend {
             },
         }
     },
+    {
+        type = "ammo-category",
+        name = "mortar-hypnosis-effect",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-hypnosis-ammo.png",
+        icon_size = 64,
+        subgroup = "ammo-category",
+        hidden = true,
+    },
 }
 
 data.raw["stream"][projectile_stream_name].particle.tint = tint_color
 
 if settings.startup[constants.name_prefix .. "enable-ammo-mortar-poison-bomb"].value == true then
     tech.add_prerequisite(ammo_name, "mortar-poison-bomb")
+end
+-- add bonus tech effects
+for level = 1, 4 do
+    tech.add_effect("strategy-mortar-shell-efficiency-" .. level, {
+        type = "ammo-damage",
+        ammo_category = "mortar-hypnosis-effect",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-hypnosis-ammo.png",
+        icon_size = 64,
+        modifier = 0.2 + 0.2 * level,
+    })
 end
 if mods["space-age"] then
     -- todo update recipe & tech

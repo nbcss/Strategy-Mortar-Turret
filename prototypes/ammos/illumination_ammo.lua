@@ -1,8 +1,11 @@
 local constants = require("constants")
 local common = require("prototypes.common")
+local illumination_control = require("script.illumination_control")
+local tech = require("technology_tool")
 local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-illumination-ammo"
 local projectile_stream_name = "mortar-illumination-projectile-stream"
+local illumination_duration = 30
 
 if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
     return
@@ -28,15 +31,15 @@ data:extend {
         custom_tooltip_fields = {
             {
                 name = { "strategy-mortar-turret.base-illumination-damage-bonus" },
-                value = { "format-percent", "+" .. tostring(10) },
+                value = { "format-percent", "+" .. tostring(illumination_control.base_damage_bonus * 100) },
             },
             {
                 name = { "strategy-mortar-turret.night-illumination-damage-bonus" },
-                value = { "format-percent", "+" .. tostring(30) },
+                value = { "format-percent", "+" .. tostring((illumination_control.base_damage_bonus + illumination_control.darkness_damage_bonus) * 100) },
             },
             {
                 name = { "description.duration" },
-                value = { "seconds", tostring(30) },
+                value = { "seconds", tostring(illumination_duration) },
             }
         },
         ammo_category = constants.strategy_mortar_ammo_category,
@@ -44,7 +47,7 @@ data:extend {
             target_type = "position",
             clamp_position = true,
             range_modifier = 1,
-            cooldown_modifier = 1 / 0.75,
+            cooldown_modifier = 1 / 0.6,
             action = {
                 type = "direct",
                 action_delivery = {
@@ -179,7 +182,7 @@ data:extend {
         affected_by_wind = false,
         hidden = true,
         cyclic = true,
-        duration = 60 * 30,
+        duration = 60 * illumination_duration,
         fade_away_duration = 60 * 1,
         spread_duration = 10,
         animation = {
@@ -232,4 +235,23 @@ data:extend {
         },
         action_cooldown = 20
     },
+    {
+        type = "ammo-category",
+        name = "mortar-illumination-effect",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo.png",
+        icon_size = 64,
+        subgroup = "ammo-category",
+        hidden = true,
+    },
 }
+
+-- add bonus tech effects
+for level = 1, 4 do
+    tech.add_effect("strategy-mortar-shell-efficiency-" .. level, {
+        type = "ammo-damage",
+        ammo_category = "mortar-illumination-effect",
+        icon = "__strategy-mortar-turret__/graphics/icons/mortar-illumination-ammo.png",
+        icon_size = 64,
+        modifier = 0.1 + 0.1 * level,
+    })
+end

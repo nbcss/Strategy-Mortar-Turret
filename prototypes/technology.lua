@@ -9,7 +9,7 @@ data:extend{
         },
         prerequisites = { "mortar-turret" },
         upgrade = true,
-        order = "z",
+        order = "za",
         unit = {
             count = 200,
             ingredients = {
@@ -30,7 +30,7 @@ data:extend{
         },
         prerequisites = { "chemical-science-pack", "mortar-turret-damage-1" },
         upgrade = true,
-        order = "z",
+        order = "za",
         unit = {
             count = 300,
             ingredients = {
@@ -54,7 +54,7 @@ data:extend{
         },
         prerequisites = { "utility-science-pack", "mortar-turret-damage-2" },
         upgrade = true,
-        order = "z",
+        order = "za",
         unit = {
             count = 400,
             ingredients = {
@@ -74,13 +74,13 @@ data:extend{
         effects = {
             {type = "turret-attack", turret_id = "mortar-turret", modifier = 0.2},
             {type = "turret-attack", turret_id = "tilted-mortar-turret", modifier = 0.2, hidden = true},
-            {type = "turret-attack", turret_id = "heavy-mortar-turret", modifier = 0.2},
-            {type = "turret-attack", turret_id = "tilted-heavy-mortar-turret", modifier = 0.2, hidden = true},
+            {type = "turret-attack", turret_id = "heavy-mortar-turret", modifier = 0.3},
+            {type = "turret-attack", turret_id = "tilted-heavy-mortar-turret", modifier = 0.3, hidden = true},
         },
         prerequisites = { "space-science-pack", "mortar-turret-damage-3" },
         max_level = "infinite",
         upgrade = true,
-        order = "z",
+        order = "za",
         unit = {
             count_formula = "2^(L-4)*500",
             ingredients = {
@@ -89,6 +89,89 @@ data:extend{
                 { "military-science-pack",   1 },
                 { "chemical-science-pack",   1 },
                 { "utility-science-pack",    1 },
+                { "space-science-pack",      1 },
+            },
+            time = 60,
+        },
+    },
+    {
+        type = "technology",
+        name = "strategy-mortar-shell-efficiency-1",
+        icons = util.technology_icon_constant_damage("__strategy-mortar-turret__/graphics/technology/mortar-turret.png"),
+        effects = {},
+        prerequisites = { "military-3", "mortar-turret" },
+        upgrade = true,
+        order = "zb",
+        unit = {
+            count = 200,
+            ingredients = {
+                { "automation-science-pack", 1 },
+                { "logistic-science-pack",   1 },
+                { "military-science-pack",   1 },
+                { "chemical-science-pack",   1 },
+            },
+            time = 60,
+        },
+    },
+    {
+        type = "technology",
+        name = "strategy-mortar-shell-efficiency-2",
+        icons = util.technology_icon_constant_damage("__strategy-mortar-turret__/graphics/technology/mortar-turret.png"),
+        effects = {},
+        prerequisites = { "utility-science-pack", "strategy-mortar-shell-efficiency-1" },
+        upgrade = true,
+        order = "zb",
+        unit = {
+            count = 300,
+            ingredients = {
+                { "automation-science-pack", 1 },
+                { "logistic-science-pack",   1 },
+                { "military-science-pack",   1 },
+                { "chemical-science-pack",   1 },
+                { "utility-science-pack",    1 },
+            },
+            time = 60,
+        },
+    },
+    {
+        type = "technology",
+        name = "strategy-mortar-shell-efficiency-3",
+        icons = util.technology_icon_constant_damage("__strategy-mortar-turret__/graphics/technology/mortar-turret.png"),
+        effects = {},
+        prerequisites = { "production-science-pack", "strategy-mortar-shell-efficiency-2" },
+        upgrade = true,
+        order = "zb",
+        unit = {
+            count = 400,
+            ingredients = {
+                { "automation-science-pack", 1 },
+                { "logistic-science-pack",   1 },
+                { "military-science-pack",   1 },
+                { "chemical-science-pack",   1 },
+                { "utility-science-pack",    1 },
+                { "production-science-pack", 1 },
+            },
+            time = 60,
+        },
+    },
+    {
+        type = "technology",
+        name = "strategy-mortar-shell-efficiency-4",
+        icons = util.technology_icon_constant_damage("__strategy-mortar-turret__/graphics/technology/mortar-turret.png"),
+        effects = {},
+        prerequisites = { "space-science-pack", "strategy-mortar-shell-efficiency-3" },
+        max_level = "infinite",
+        upgrade = true,
+        order = "zb",
+        unit = {
+            count_formula = "2^(L-4)*500",
+            ingredients = {
+                { "automation-science-pack", 1 },
+                { "logistic-science-pack",   1 },
+                { "military-science-pack",   1 },
+                { "chemical-science-pack",   1 },
+                { "utility-science-pack",    1 },
+                { "production-science-pack", 1 },
                 { "space-science-pack",      1 },
             },
             time = 60,

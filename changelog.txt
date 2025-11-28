@@ -6,8 +6,10 @@ Date: 29. 11. 2025
     - Added optional Age of Production support to produce ammo in Armoury.
     - Added physical mortar shell ammo category which receive projectile technology damage bonus.
     - Added electric mortar shell ammo category which receive electric/laser technology damage bonus.
+    - Added technology effects to improve efficiency of illumination shell (more damage bonus) and hyponosis shell (higher success chance).
   Changes:
     - Hyponosis max transform chance increased to 25%.
+    - Illumination shell damage bonus during day decrease to +5%, shooting speed modifier decrease to 60%.
     - Reduced Heavy mortar turret health to 1200.
     - Shrapenl ammo changed to physical mortar shell ammo category, also updated name.
     - Reduced all mortar ammo stack size to 25, can be reverted to 200 in the startup setting.
