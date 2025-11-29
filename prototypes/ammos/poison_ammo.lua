@@ -37,7 +37,7 @@ data:extend {
                     {
                         type = "stream",
                         stream = projectile_stream_name,
-                        source_offset = source_offset
+                        source_offset = source_offset,
                     }
                 }
             }

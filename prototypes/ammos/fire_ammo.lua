@@ -29,7 +29,7 @@ data:extend {
                 action_delivery = {
                     type = "stream",
                     stream = projectile_stream_name,
-                    source_offset = source_offset
+                    source_offset = source_offset,
                 }
             }
         }
@@ -215,7 +215,7 @@ data:extend {
         localised_name = { "entity-name.fire-flame" },
         flags = { "placeable-off-grid", "not-on-map" },
         hidden = true,
-        damage_per_tick = { amount = 15 / 60, type = "fire" },
+        damage_per_tick = { amount = 10 / 60, type = "fire" },
         maximum_damage_multiplier = 6,
         damage_multiplier_increase_per_added_fuel = 1,
         damage_multiplier_decrease_per_tick = 0.005,

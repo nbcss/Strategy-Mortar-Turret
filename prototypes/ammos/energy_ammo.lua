@@ -4,7 +4,7 @@ local source_offset = { 0, 0.25 }
 local ammo_name = "mortar-energy-ammo"
 local projectile_stream_name = "mortar-energy-projectile-stream"
 
-if settings.startup[constants.name_prefix.."enable-ammo-"..ammo_name].value == false then
+if settings.startup[constants.name_prefix .. "enable-ammo-" .. ammo_name].value == false then
     return
 end
 
@@ -28,7 +28,7 @@ data:extend {
                 action_delivery = {
                     type = "stream",
                     stream = projectile_stream_name,
-                    source_offset = source_offset
+                    source_offset = source_offset,
                 }
             }
         }
@@ -39,12 +39,12 @@ data:extend {
         enabled = false,
         energy_required = 8,
         ingredients = {
-            {type = "item", name = "steel-plate", amount = 5},
-            {type = "item", name = "plastic-bar", amount = 5},
-            {type = "item", name = "battery", amount = 10}
+            { type = "item", name = "steel-plate", amount = 5 },
+            { type = "item", name = "plastic-bar", amount = 5 },
+            { type = "item", name = "battery",     amount = 10 }
         },
         results = {
-            {type = "item", name = ammo_name, amount = 1},
+            { type = "item", name = ammo_name, amount = 1 },
         }
     },
     {
@@ -68,7 +68,7 @@ data:extend {
             time = 30
         },
     },
-    common.create_mortar_stream{
+    common.create_mortar_stream {
         name = projectile_stream_name,
         -- TODO add particle
         particle = data.raw["artillery-projectile"]["artillery-projectile"].picture,
@@ -116,7 +116,7 @@ data:extend {
             }
         }
     },
-    common.replace_merge{ data.raw["beam"]["electric-beam"], {
+    common.replace_merge { data.raw["beam"]["electric-beam"], {
         name = "electric-beam-no-damage",
         action = common.nil_value,
     } },

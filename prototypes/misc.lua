@@ -1,5 +1,6 @@
 local constants = require("constants")
 local common = require("prototypes.common")
+local explosion_animations = require("__base__.prototypes.entity.explosion-animations")
 
 data.extend {
     {
@@ -52,5 +53,23 @@ data.extend {
         alert_when_damaged = false,
         is_military_target = false,
         created_effect = common.robot_deploy_effect(),
+    },
+    {
+        type = "explosion",
+        name = "mortar-muzzle-flash",
+        localised_name = { "entity-name.artillery-cannon-muzzle-flash" },
+        icon = "__base__/graphics/icons/artillery-shell.png",
+        flags = { "not-on-map" },
+        hidden = true,
+        subgroup = "explosions",
+        order = "a-b-b",
+        animations = explosion_animations.artillery_muzzle_flash(),
+        rotate = true,
+        height = 0,
+        correct_rotation = true,
+        smoke = "smoke-fast",
+        smoke_count = 1,
+        smoke_slow_down_factor = 1,
+        scale = 0.6,
     },
 }

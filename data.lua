@@ -22,7 +22,7 @@ require("prototypes.ammos.shrapnel_ammo")
 require("prototypes.ammos.light_nuclear_ammo")
 
 -- change to 360 angle turret
-if settings.startup[constants.name_prefix.."directional-turret-range"].value == false then
+if settings.startup[constants.name_prefix .. "directional-turret-range"].value == false then
     local turret = data.raw["ammo-turret"]["mortar-turret"]
     turret.attack_parameters.turn_range = nil
 end
@@ -30,7 +30,7 @@ end
 -- update ironclad turret to use strategy ammo
 local ironclad_mortar_turret = data.raw["gun"]["ironclad-mortar"]
 ironclad_mortar_turret.attack_parameters.ammo_category = nil
-ironclad_mortar_turret.attack_parameters.ammo_categories = {"mortar-bomb",
+ironclad_mortar_turret.attack_parameters.ammo_categories = { "mortar-bomb",
     constants.strategy_mortar_ammo_category,
     constants.physical_mortar_ammo_category,
     constants.electric_mortar_ammo_category,
@@ -55,5 +55,26 @@ if mods["Age-of-Production"] then
         if data.raw["recipe"][ammo_name] then
             data.raw["recipe"][ammo_name].additional_categories = { "ammunition" }
         end
+    end
+end
+
+-- Update gunshot effect
+local function add_gunshot_effect(ammo_prototype)
+    local action_delivery = ammo_prototype.ammo_type.action.action_delivery[1] or ammo_prototype.ammo_type.action.action_delivery
+    local source_effects = action_delivery.source_effects or {}
+    table.insert(source_effects, {
+        type = "create-explosion",
+        -- entity_name = "explosion-gunshot",
+        -- offsets = { { 0, 0.5 } },
+        entity_name = "mortar-muzzle-flash",
+        offsets = { { 0, -0.65 } },
+    })
+    action_delivery.source_effects = source_effects
+end
+add_gunshot_effect(data.raw["ammo"]["mortar-bomb"])
+add_gunshot_effect(data.raw["ammo"]["mortar-cluster-bomb"])
+for _, ammo_name in ipairs(constants.ammo_types) do
+    if data.raw["ammo"][ammo_name] then
+        add_gunshot_effect(data.raw["ammo"][ammo_name])
     end
 end

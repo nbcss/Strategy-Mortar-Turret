@@ -56,21 +56,23 @@ data:extend {
                         stream = projectile_stream_name,
                         source_offset = source_offset,
                         source_effects = {
-                            type = "play-sound",
-                            play_on_target_position = true,
-                            sound = {
-                                aggregation = {
-                                    max_count = 1,
-                                    remove = false
-                                },
-                                variations = {
-                                    {
-                                        filename = "__strategy-mortar-turret__/sounds/flare-launch1.ogg",
-                                        volume = 0.5
+                            {
+                                type = "play-sound",
+                                play_on_target_position = true,
+                                sound = {
+                                    aggregation = {
+                                        max_count = 1,
+                                        remove = false
                                     },
-                                    {
-                                        filename = "__strategy-mortar-turret__/sounds/flare-launch2.ogg",
-                                        volume = 0.5
+                                    variations = {
+                                        {
+                                            filename = "__strategy-mortar-turret__/sounds/flare-launch1.ogg",
+                                            volume = 0.5
+                                        },
+                                        {
+                                            filename = "__strategy-mortar-turret__/sounds/flare-launch2.ogg",
+                                            volume = 0.5
+                                        }
                                     }
                                 }
                             }
