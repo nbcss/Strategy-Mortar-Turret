@@ -105,34 +105,109 @@ data:extend {
                 }
             },
             {
-                type = "area",
-                radius = 6,
-                trigger_from_target = false,
+                type = "cluster",
+                cluster_count = 20,
+                distance = 4,
+                distance_deviation = 2,
                 action_delivery = {
-                    type = "instant",
-                    target_effects = {
-                        type = "nested-result",
-                        action = {
-                            type = "cluster",
-                            cluster_count = 30,
-                            distance = 4,
-                            distance_deviation = 2,
-                            action_delivery = {
-                                type = "instant",
-                                target_effects = {
-                                    {
-                                        type = "create-fire",
-                                        entity_name = "mortar-fire-flame",
-                                        show_in_tooltip = true,
-                                        initial_ground_flame_count = 10,
-                                    }
-                                }
-                            }
-                        },
-                    }
+                    type = "stream",
+                    stream = "mortar-fire-stream",
                 }
             },
         }
+    },
+    {
+        type = "stream",
+        name = "mortar-fire-stream",
+        flags = { "not-on-map" },
+        hidden = true,
+        smoke_sources = {
+            {
+                name = "soft-fire-smoke",
+                frequency = 0.05,      --0.25,
+                position = { 0.0, 0 }, -- -0.8},
+                starting_frame_deviation = 60
+            }
+        },
+        particle_buffer_size = 90,
+        particle_spawn_interval = 2,
+        particle_spawn_timeout = 8,
+        particle_vertical_acceleration = 0.005 * 0.60,
+        particle_horizontal_speed = 0.2 * 0.75 * 1.5,
+        particle_horizontal_speed_deviation = 0.005 * 0.70,
+        particle_start_alpha = 0.5 / 0.666,
+        particle_end_alpha = 1,
+        particle_start_scale = 0.2,
+        particle_loop_frame_count = 3,
+        particle_fade_out_threshold = 0.9,
+        particle_loop_exit_threshold = 0.25,
+        action = {
+            {
+                type = "area",
+                radius = 2,
+                action_delivery =
+                {
+                    type = "instant",
+                    target_effects =
+                    {
+                        -- {
+                        --     type = "create-sticker",
+                        --     sticker = "fire-sticker",
+                        --     show_in_tooltip = true
+                        -- },
+                        {
+                            type = "damage",
+                            damage = { amount = 20 / 60, type = "fire" },
+                            apply_damage_to_trees = false,
+                        }
+                    }
+                }
+            },
+            {
+                type = "direct",
+                action_delivery = {
+                    type = "instant",
+                    target_effects = {
+                        {
+                            type = "create-fire",
+                            entity_name = "mortar-fire-flame",
+                            show_in_tooltip = true,
+                        }
+                    }
+                }
+            }
+        },
+        spine_animation = util.draw_as_glow {
+            filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-fire-stream-spine.png",
+            blend_mode = "normal",
+            tint = { r = 1, g = 1, b = 1, a = 0.2 },
+            line_length = 6,
+            width = 54,
+            height = 26,
+            frame_count = 36,
+            animation_speed = 2,
+            shift = { 0, 0 }
+        },
+        shadow = {
+            filename = "__base__/graphics/entity/acid-projectile/projectile-shadow.png",
+            line_length = 5,
+            width = 28,
+            height = 16,
+            frame_count = 33,
+            priority = "high",
+            shift = { -0.09, 0.395 }
+        },
+        particle = util.draw_as_glow {
+            filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-explosion.png",
+            priority = "extra-high",
+            blend_mode = "normal",
+            tint = { r = 0.9, g = 0.9, b = 0.9, a = 0.55 },
+            line_length = 6,
+            width = 124,
+            height = 108,
+            frame_count = 36,
+            scale = 0.666,
+        },
     },
     fireutil.add_basic_fire_graphics_and_effects_definitions {
         type = "fire",
@@ -140,7 +215,7 @@ data:extend {
         localised_name = { "entity-name.fire-flame" },
         flags = { "placeable-off-grid", "not-on-map" },
         hidden = true,
-        damage_per_tick = { amount = 25 / 60, type = "fire" },
+        damage_per_tick = { amount = 15 / 60, type = "fire" },
         maximum_damage_multiplier = 6,
         damage_multiplier_increase_per_added_fuel = 1,
         damage_multiplier_decrease_per_tick = 0.005,
