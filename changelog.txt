@@ -4,6 +4,8 @@ Date: 30. 11. 2025
   Changes:
     - Improve the visual effect & rebalance Mortar fire shell.
     - Added gunshot visual effect to all mortar shells.
+  Bugfixes:
+    - Fixed turret open/close sound was incorrect.
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 28. 11. 2025

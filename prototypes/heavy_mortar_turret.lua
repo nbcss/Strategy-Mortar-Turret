@@ -72,8 +72,8 @@ data:extend {
         inventory_size = 1,
         automated_ammo_count = 5,
         alert_when_attacking = true,
-        open_sound = sounds.machine_open,
-        close_sound = sounds.machine_close,
+        open_sound = sounds.turret_open,
+        close_sound = sounds.turret_close,
         turret_base_has_direction = true,
         folded_animation = {
             layers = {

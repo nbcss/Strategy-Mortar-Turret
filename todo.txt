@@ -6,8 +6,6 @@ landmine shell: deploy landmine
 repair shell: repair friendly structure
 
 extra
-> fix light nuclear bomb tech cost incorrect
-> add tech bonus for illumination & hyponosis shell
 swap turret mode (friendly target?)
 manual override cooldown
 manual targeting
