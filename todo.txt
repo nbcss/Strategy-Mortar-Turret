@@ -6,6 +6,7 @@ landmine shell: deploy landmine
 repair shell: repair friendly structure
 
 extra
+simplify (grouping) technologies
 swap turret mode (friendly target?)
 manual override cooldown
 manual targeting

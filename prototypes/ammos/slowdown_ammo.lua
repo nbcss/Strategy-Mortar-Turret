@@ -24,6 +24,7 @@ data:extend {
                 value = { "seconds", tostring(cooldown_penalty) },
             }
         },
+        reload_time = 60 * cooldown_penalty,
         ammo_category = constants.strategy_mortar_ammo_category,
         ammo_type = {
             target_type = "position",
@@ -38,13 +39,13 @@ data:extend {
                         stream = projectile_stream_name,
                         source_offset = source_offset,
                     },
-                    {
-                        type = "instant",
-                        source_effects = {
-                            type = "script",
-                            effect_id = "mortar-turret-cooldown-" .. cooldown_penalty
-                        }
-                    }
+                    -- {
+                    --     type = "instant",
+                    --     source_effects = {
+                    --         type = "script",
+                    --         effect_id = "mortar-turret-cooldown-" .. cooldown_penalty
+                    --     }
+                    -- }
                 }
             }
         }

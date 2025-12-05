@@ -86,11 +86,31 @@ script.on_event(defines.events.on_script_trigger_effect, function(event)
         end
     elseif event.effect_id == 'mortar-turret-illumination-damage' then
         illumination_control.update_entity_damage(event.cause_entity, event.source_entity, event.target_entity)
-    elseif util.string_starts_with(event.effect_id, 'mortar-turret-cooldown-') then
-        if not event.cause_entity or event.cause_entity.type ~= "ammo-turret" then return end
-        local cooldown = tonumber(string.sub(event.effect_id, 1 + #'mortar-turret-cooldown-'))
-        cooldown_control.apply(cooldown * 60, event.cause_entity)
     end
+    -- elseif event.effect_id == 'mortar-bouncing' then
+    --     if event.source_position and event.target_position and event.cause_entity then
+    --         local next_target = {
+    --             x = event.target_position.x + (event.target_position.x - event.source_position.x) * 0.75,
+    --             y = event.target_position.y + (event.target_position.y - event.source_position.y) * 0.75,
+    --         }
+    --         local surface = game.surfaces[event.surface_index]
+    --         -- game.print(event.target_entity.name)
+    --         surface.create_entity{
+    --             name="mortar-bouncing-projectile-stream",
+    --             position=event.cause_entity.position,
+    --             direction = event.cause_entity.direction,
+    --             quality = event.cause_entity.quality,
+    --             force = event.cause_entity.force,
+    --             source = event.target_position,
+    --             target = next_target,
+    --             cause = event.cause_entity,
+    --         }
+    --     end
+    -- elseif util.string_starts_with(event.effect_id, 'mortar-turret-cooldown-') then
+    --     if not event.cause_entity or event.cause_entity.type ~= "ammo-turret" then return end
+    --     local cooldown = tonumber(string.sub(event.effect_id, 1 + #'mortar-turret-cooldown-'))
+    --     cooldown_control.apply(cooldown * 60, event.cause_entity)
+    -- end
 end)
 
 script.on_event(defines.events.on_object_destroyed, function(event)

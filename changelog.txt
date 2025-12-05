@@ -4,6 +4,7 @@ Date: 30. 11. 2025
   Changes:
     - Improve the visual effect & rebalance Mortar fire shell.
     - Added gunshot visual effect to all mortar shells.
+    - Turret cooldown penalty renamed to Reload penalty, it will now affects vehicle weapon too.
   Bugfixes:
     - Fixed turret open/close sound was incorrect.
 ---------------------------------------------------------------------------------------------------

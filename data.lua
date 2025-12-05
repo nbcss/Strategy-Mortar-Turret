@@ -3,7 +3,7 @@ local constants = require("constants")
 -- mortar turret
 require("prototypes.mortar_turret")
 require("prototypes.heavy_mortar_turret")
--- tech & ammo
+-- tech & misc
 require("prototypes.technology")
 require("prototypes.misc")
 -- ammos
@@ -20,6 +20,7 @@ require("prototypes.ammos.illumination_ammo")
 require("prototypes.ammos.hypnosis_ammo")
 require("prototypes.ammos.shrapnel_ammo")
 require("prototypes.ammos.light_nuclear_ammo")
+-- require("prototypes.ammos.bouncing_ammo")
 
 -- change to 360 angle turret
 if settings.startup[constants.name_prefix .. "directional-turret-range"].value == false then
