@@ -114,6 +114,7 @@ data:extend {
                     type = "instant",
                     target_effects = {
                         type = "script",
+                        probability = hypnosis_control.max_chance,
                         effect_id = "mortar-apply-hypnosis",
                         show_in_tooltip = true
                     }
