@@ -85,3 +85,13 @@ if settings.startup[constants.name_prefix .. "reduce-mortar-ammo-stack-size"].va
         end
     end
 end
+
+if settings.startup[constants.name_prefix .. "cheap-ammo-mode"].value == true then
+    data.raw["recipe"]["mortar-bomb"].results[1].amount = 2
+    data.raw["recipe"]["mortar-cluster-bomb"].results[1].amount = 2
+    for _, ammo_name in ipairs(constants.ammo_types) do
+        if data.raw["recipe"][ammo_name] then
+            data.raw["recipe"][ammo_name].results[1].amount = 2
+        end
+    end
+end

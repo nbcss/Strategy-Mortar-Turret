@@ -17,6 +17,13 @@ data:extend{
     },
     {
         type = "bool-setting",
+        name = constants.name_prefix.."cheap-ammo-mode",
+        order = "b",
+        setting_type = "startup",
+        default_value = false,
+    },
+    {
+        type = "bool-setting",
         name = constants.name_prefix.."remove-aai-ironclad",
         order = "c",
         setting_type = "startup",

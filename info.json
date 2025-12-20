@@ -1,11 +1,14 @@
 {
     "name": "strategy-mortar-turret",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "title": "Strategy Mortar Turret",
     "author": "nbcss, FiveYellowMice",
     "factorio_version": "2.0",
 	"dependencies": [ 
         "aai-vehicles-ironclad",
+        "custom-bonus-gui",
+        "? Krastorio2",
+        "? Krastorio2-spaced-out",
         "? space-age",
         "? ironclad-gunboat-and-mortar-turret-fork",
         "? Age-of-Production"

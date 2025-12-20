@@ -1,5 +1,6 @@
 local constants = {}
 
+constants.mod_name = "strategy-mortar-turret"
 constants.name_prefix = "strategy_mortar_turret-"
 constants.mortar_ammo_subgroup = "mortar-ammo"
 constants.strategy_mortar_ammo_category = "strategy-mortar-ammo"

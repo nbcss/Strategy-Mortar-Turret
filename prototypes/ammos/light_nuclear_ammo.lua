@@ -10,6 +10,57 @@ if settings.startup[constants.name_prefix .. "enable-ammo-" .. ammo_name].value 
     return
 end
 
+local damage_effects_1 = {
+    {
+        type = "damage",
+        vaporize = true,
+        damage = { type = "explosion", amount = 1000 },
+    }
+}
+local damage_effects_2 = {
+    {
+        type = "damage",
+        damage = { type = "explosion", amount = 250 },
+    }
+}
+local damage_effects_3 = {
+    {
+        type = "damage",
+        damage = { type = "explosion", amount = 100 },
+    }
+}
+
+if mods["Krastorio2"] or mods["Krastorio2-spaced-out"] then
+    damage_effects_1 = {
+        {
+            type = "damage",
+            vaporize = true,
+            damage = { type = "kr-explosion", amount = 1000 },
+        },
+        {
+            type = "damage",
+            vaporize = true,
+            damage = { type = "kr-radioactive", amount = 500 },
+        }
+    }
+    damage_effects_2 = {
+        {
+            type = "damage",
+            damage = { type = "kr-explosion", amount = 250 },
+        },
+        {
+            type = "damage",
+            damage = { type = "kr-radioactive", amount = 100 },
+        }
+    }
+    damage_effects_3 = {
+        {
+            type = "damage",
+            damage = { type = "kr-radioactive", amount = 100 },
+        }
+    }
+end
+
 data:extend {
     {
         type = "ammo",
@@ -159,13 +210,7 @@ data:extend {
                 action_delivery = {
                     {
                         type = "instant",
-                        target_effects = {
-                            {
-                                type = "damage",
-                                vaporize = true,
-                                damage = { type = "explosion", amount = 1000 },
-                            }
-                        }
+                        target_effects = damage_effects_1,
                     }
                 }
             },
@@ -176,12 +221,7 @@ data:extend {
                 action_delivery = {
                     {
                         type = "instant",
-                        target_effects = {
-                            {
-                                type = "damage",
-                                damage = { type = "explosion", amount = 250 },
-                            }
-                        }
+                        target_effects = damage_effects_2,
                     }
                 }
             },
@@ -192,12 +232,7 @@ data:extend {
                 action_delivery = {
                     {
                         type = "instant",
-                        target_effects = {
-                            {
-                                type = "damage",
-                                damage = { type = "explosion", amount = 100 },
-                            }
-                        }
+                        target_effects = damage_effects_3,
                     }
                 }
             }

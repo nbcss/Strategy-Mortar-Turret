@@ -3,7 +3,50 @@ local cooldown_control = require("script.cooldown_control")
 local hypnosis_control = require("script.hypnosis_control")
 local illumination_control = require("script.illumination_control")
 local bonus_damage_control = require("script.bonus_damage_control")
+local constants = require("constants")
 local util = require("util")
+
+local function update_bonus(force)
+    local hypnosis_bonus = 0
+    if settings.startup[constants.name_prefix .. "enable-ammo-mortar-hypnosis-ammo"].value == true then
+        hypnosis_bonus = force.get_ammo_damage_modifier("mortar-hypnosis-effect")
+    end
+    if hypnosis_bonus > 0 then
+        remote.call("custom-bonus-gui", "set", force, {
+            name = constants.name_prefix .. "hypnosis-bonus",
+            mod_name = constants.mod_name,
+            order = "sma-hypnosis",
+            icons = {
+                { type = 'item', name = 'mortar-hypnosis-ammo' },
+            },
+            texts = {
+                { "", { "strategy-mortar-turret.hypnosis-chance" }, ": ×", string.format("%.1f", 1 + hypnosis_bonus) },
+            }
+        })
+    else
+        remote.call("custom-bonus-gui", "remove", force, constants.name_prefix .. "hypnosis-bonus")
+    end
+
+    local illumination_bonus = 0
+    if settings.startup[constants.name_prefix .. "enable-ammo-mortar-illumination-ammo"].value == true then
+        illumination_bonus = force.get_ammo_damage_modifier("mortar-illumination-effect")
+    end
+    if illumination_bonus > 0 then
+        remote.call("custom-bonus-gui", "set", force, {
+            name = constants.name_prefix .. "illumination-bonus",
+            mod_name = constants.mod_name,
+            order = "sma-illumination",
+            icons = {
+                { type = 'item', name = 'mortar-illumination-ammo' },
+            },
+            texts = {
+                { "", { "strategy-mortar-turret.illumination-damage-bonus" }, ": +", { "format-percent", illumination_bonus * 100 } },
+            }
+        })
+    else
+        remote.call("custom-bonus-gui", "remove", force, constants.name_prefix .. "illumination-bonus")
+    end
+end
 
 script.on_init(function()
     robot_control.on_init()
@@ -15,6 +58,9 @@ script.on_configuration_changed(function()
     robot_control.on_init()
     cooldown_control.on_init()
     bonus_damage_control.on_init()
+    for _, force in pairs(game.forces) do
+        update_bonus(force)
+    end
 end)
 
 script.on_nth_tick(30 * 60, function(_)
@@ -69,6 +115,10 @@ script.on_event(defines.events.script_raised_built, replace_tilted_turret,
     { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
 script.on_event(defines.events.on_space_platform_built_entity, replace_tilted_turret,
     { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
+
+script.on_event(defines.events.on_research_finished, function (event) update_bonus(event.research.force) end)
+script.on_event(defines.events.on_research_reversed, function (event) update_bonus(event.research.force) end)
+script.on_event(defines.events.on_force_reset, function (event) update_bonus(event.force) end)
 
 script.on_event(defines.events.on_script_trigger_effect, function(event)
     if event.effect_id == 'mortar-turret-robot-shoot' then
