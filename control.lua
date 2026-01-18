@@ -40,7 +40,7 @@ local function update_bonus(force)
                 { type = 'item', name = 'mortar-illumination-ammo' },
             },
             texts = {
-                { "", { "strategy-mortar-turret.illumination-damage-bonus" }, ": +", { "format-percent", illumination_bonus * 100 } },
+                { "", { "strategy-mortar-turret.illumination-damage-bonus" }, ": ×", string.format("%.1f", 1 + illumination_bonus) },
             }
         })
     else
