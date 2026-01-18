@@ -2,7 +2,7 @@ local sounds = require("__base__/prototypes/entity/sounds")
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local constants = require("constants")
 
-data:extend{
+data:extend {
     {
         type = "item",
         name = "mortar-turret",
@@ -20,12 +20,12 @@ data:extend{
         enabled = false,
         energy_required = 10,
         ingredients = {
-            {type = "item", name = "engine-unit", amount = 10},
-            {type = "item", name = "steel-plate", amount = 5},
-            {type = "item", name = "iron-gear-wheel", amount = 10},
+            { type = "item", name = "engine-unit",     amount = 10 },
+            { type = "item", name = "steel-plate",     amount = 5 },
+            { type = "item", name = "iron-gear-wheel", amount = 10 },
         },
         results = {
-            {type = "item", name = "mortar-turret", amount = 1},
+            { type = "item", name = "mortar-turret", amount = 1 },
         }
     },
     {
@@ -149,7 +149,7 @@ data:extend{
         vehicle_impact_sound = sounds.generic_impact,
         attack_parameters = {
             type = "projectile",
-            ammo_categories = {constants.strategy_mortar_ammo_category, constants.physical_mortar_ammo_category, constants.electric_mortar_ammo_category, "mortar-bomb"},
+            ammo_categories = { constants.strategy_mortar_ammo_category, constants.physical_mortar_ammo_category, constants.electric_mortar_ammo_category, "mortar-bomb" },
             -- lead_target_for_projectile_speed = 0.4,
             cooldown = 10 * 60,
             movement_slow_down_factor = 0,
@@ -179,26 +179,26 @@ data:extend{
         circuit_wire_max_distance = default_circuit_wire_max_distance,
         circuit_connector = circuit_connector_definitions.create_vector(
             universal_connector_template, {
-                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
-                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
-                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
-                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
-                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
-                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
-                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
-                { variation = 17, main_offset = util.by_pixel( -21, 1), shadow_offset = util.by_pixel( -12, 10), show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel(-21, 1),  shadow_offset = util.by_pixel(-12, 10),  show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel(-21, 1),  shadow_offset = util.by_pixel(-12, 10),  show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel(-21, 1),  shadow_offset = util.by_pixel(-12, 10),  show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel(-21, 1),  shadow_offset = util.by_pixel(-12, 10),  show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel(-21, 1),  shadow_offset = util.by_pixel(-12, 10),  show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel(-21, 1),  shadow_offset = util.by_pixel(-12, 10),  show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel(-21, 1),  shadow_offset = util.by_pixel(-12, 10),  show_shadow = true },
+                { variation = 17, main_offset = util.by_pixel(-21, 1),  shadow_offset = util.by_pixel(-12, 10),  show_shadow = true },
             }
         ),
     },
 }
-data.extend{
-    util.merge{data.raw["ammo-turret"]["mortar-turret"], {
+data.extend {
+    util.merge { data.raw["ammo-turret"]["mortar-turret"], {
         name = "tilted-mortar-turret",
-        localised_name = {"entity-name.mortar-turret"},
-        localised_description = {"entity-description.mortar-turret"},
+        localised_name = { "entity-name.mortar-turret" },
+        localised_description = { "entity-description.mortar-turret" },
         collision_box = { { -0.7, -0.7 }, { 0.7, 0.7 }, 0.125 },
         selection_box = { { -1, -1 }, { 1, 1 }, 0.125 },
-        placeable_by = {item = "mortar-turret", count = 1},
+        placeable_by = { item = "mortar-turret", count = 1 },
         hidden = true,
-    }},
+    } },
 }

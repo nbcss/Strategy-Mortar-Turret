@@ -78,27 +78,17 @@ local replace_tilted_turret = function(event)
         event.entity.direction == defines.direction.south or event.entity.direction == defines.direction.west then
         return
     end
-    if event.entity.name == "mortar-turret" then
+    local is_ghost = event.entity.name == "entity-ghost"
+    local entity_name = is_ghost and event.entity.ghost_name or event.entity.name
+    if entity_name == "mortar-turret" or entity_name == "heavy-mortar-turret" then
         local tilted_turret = event.entity.surface.create_entity {
-            name = "tilted-mortar-turret",
+            name = is_ghost and "entity-ghost" or "tilted-"..entity_name,
+            ghost_name = is_ghost and "tilted-"..entity_name or nil,
             position = event.entity.position,
             direction = event.entity.direction,
             quality = event.entity.quality,
             force = event.entity.force,
-            player = event.entity.last_user,
-            raise_built = false,
-            create_build_effect_smoke = false,
-        }
-        tilted_turret.copy_settings(event.entity)
-        event.entity.destroy()
-    elseif event.entity.name == "heavy-mortar-turret" then
-        local tilted_turret = event.entity.surface.create_entity {
-            name = "tilted-heavy-mortar-turret",
-            position = event.entity.position,
-            direction = event.entity.direction,
-            quality = event.entity.quality,
-            force = event.entity.force,
-            player = event.entity.last_user,
+            player = event.player_index,
             raise_built = false,
             create_build_effect_smoke = false,
         }
@@ -107,14 +97,16 @@ local replace_tilted_turret = function(event)
     end
 end
 
-script.on_event(defines.events.on_built_entity, replace_tilted_turret,
-    { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
-script.on_event(defines.events.on_robot_built_entity, replace_tilted_turret,
-    { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
-script.on_event(defines.events.script_raised_built, replace_tilted_turret,
-    { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
-script.on_event(defines.events.on_space_platform_built_entity, replace_tilted_turret,
-    { { filter = "name", name = "mortar-turret" }, { filter = "name", name = "heavy-mortar-turret" } })
+local built_entity_filters = {
+    { filter = "name", name = "mortar-turret" },
+    { filter = "ghost_name", name = "mortar-turret" },
+    { filter = "name", name = "heavy-mortar-turret" },
+    { filter = "ghost_name", name = "heavy-mortar-turret" },
+}
+script.on_event(defines.events.on_built_entity, replace_tilted_turret, built_entity_filters)
+script.on_event(defines.events.on_robot_built_entity, replace_tilted_turret, built_entity_filters)
+script.on_event(defines.events.script_raised_built, replace_tilted_turret, built_entity_filters)
+script.on_event(defines.events.on_space_platform_built_entity, replace_tilted_turret, built_entity_filters)
 
 script.on_event(defines.events.on_research_finished, function (event) update_bonus(event.research.force) end)
 script.on_event(defines.events.on_research_reversed, function (event) update_bonus(event.research.force) end)
