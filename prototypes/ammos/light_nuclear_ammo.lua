@@ -10,32 +10,34 @@ if settings.startup[constants.name_prefix .. "enable-ammo-" .. ammo_name].value 
     return
 end
 
+local explosion = data.raw["damage-type"]["kr-explosion"] and "kr-explosion" or "explosion"
+
 local damage_effects_1 = {
     {
         type = "damage",
         vaporize = true,
-        damage = { type = "explosion", amount = 1000 },
+        damage = { type = explosion, amount = 1000 },
     }
 }
 local damage_effects_2 = {
     {
         type = "damage",
-        damage = { type = "explosion", amount = 250 },
+        damage = { type = explosion, amount = 250 },
     }
 }
 local damage_effects_3 = {
     {
         type = "damage",
-        damage = { type = "explosion", amount = 100 },
+        damage = { type = explosion, amount = 100 },
     }
 }
 
-if mods["Krastorio2"] or mods["Krastorio2-spaced-out"] then
+if data.raw["damage-type"]["kr-radioactive"] then
     damage_effects_1 = {
         {
             type = "damage",
             vaporize = true,
-            damage = { type = "kr-explosion", amount = 1000 },
+            damage = { type = explosion, amount = 1000 },
         },
         {
             type = "damage",
@@ -46,7 +48,7 @@ if mods["Krastorio2"] or mods["Krastorio2-spaced-out"] then
     damage_effects_2 = {
         {
             type = "damage",
-            damage = { type = "kr-explosion", amount = 250 },
+            damage = { type = explosion, amount = 250 },
         },
         {
             type = "damage",
@@ -91,13 +93,6 @@ data:extend {
                         stream = projectile_stream_name,
                         source_offset = source_offset,
                     },
-                    -- {
-                    --     type = "instant",
-                    --     source_effects = {
-                    --         type = "script",
-                    --         effect_id = "mortar-turret-cooldown-" .. cooldown_penalty
-                    --     }
-                    -- }
                 }
             }
         }
