@@ -211,3 +211,14 @@ data.extend{
         hidden = true,
     }},
 }
+
+-- ESI: Remembrance pushes processing-unit to late game, swap to ei-electronic-parts to balance
+if mods["exotic-space-industries-remembrance"] then
+    local recipe = data.raw["recipe"]["heavy-mortar-turret"]
+    for i, ingredient in ipairs(recipe.ingredients) do
+        if ingredient.name == "processing-unit" then
+            ingredient.name = "ei-electronic-parts"
+            break
+        end
+    end
+end
