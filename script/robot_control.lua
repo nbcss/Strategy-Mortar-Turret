@@ -38,7 +38,7 @@ function robot_control.register_deployed_robot(robot)
         if robot.name == "mortar-turret-robot-locator" then
             -- apply non-destructible flags
             robot.destructible = false
-            robot.minable = false
+            robot.minable_flag = false
             -- relocate current deployed robots
             for _, deployed_robot in pairs(storage.turrets[turret.unit_number].deployed_robots) do
                 if deployed_robot.valid then

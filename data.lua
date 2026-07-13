@@ -48,14 +48,21 @@ mortar_cluster_bomb_ammo_item.order = "ab"
 
 -- Ago of Production dependency
 if mods["Age-of-Production"] then
+    -- 2.1 replaced recipe.category/additional_categories with a categories array;
+    -- append "ammunition" while keeping the recipe's original category.
+    local function add_ammunition_category(recipe_name)
+        local recipe = data.raw["recipe"][recipe_name]
+        if not recipe then return end
+        recipe.categories = recipe.categories or { recipe.category or "crafting" }
+        recipe.category = nil
+        table.insert(recipe.categories, "ammunition")
+    end
     -- AAI base mortar bombs update
-    data.raw["recipe"]["mortar-bomb"].additional_categories = { "ammunition" }
-    data.raw["recipe"]["mortar-cluster-bomb"].additional_categories = { "ammunition" }
+    add_ammunition_category("mortar-bomb")
+    add_ammunition_category("mortar-cluster-bomb")
     -- strategy ammos update
     for _, ammo_name in ipairs(constants.ammo_types) do
-        if data.raw["recipe"][ammo_name] then
-            data.raw["recipe"][ammo_name].additional_categories = { "ammunition" }
-        end
+        add_ammunition_category(ammo_name)
     end
 end
 
