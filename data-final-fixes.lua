@@ -69,6 +69,7 @@ if settings.startup[constants.name_prefix .. "remove-aai-ironclad"].value == tru
     data.raw["car"]["ironclad"] = nil
     data.raw["item-with-entity-data"]["ironclad"] = nil
     data.raw["recipe"]["ironclad"] = nil
+    tech.remove_unlock_recipe("recycling", "ironclad-recycling")
     data.raw["recipe"]["ironclad-recycling"] = nil
     data.raw["technology"]["ironclad"] = nil
     for _, technology in pairs(data.raw.technology) do

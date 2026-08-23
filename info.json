@@ -1,6 +1,6 @@
 {
     "name": "strategy-mortar-turret",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "title": "Strategy Mortar Turret",
     "author": "nbcss, FiveYellowMice",
     "factorio_version": "2.1",
@@ -10,6 +10,7 @@
         "? Krastorio2",
         "? Krastorio2-spaced-out",
         "? space-age",
+        "? recycler",
         "? ironclad-gunboat-and-mortar-turret-fork",
         "? Age-of-Production",
         "? exotic-space-industries-remembrance"
